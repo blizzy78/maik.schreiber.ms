@@ -1,0 +1,10 @@
+url: https://github.com/blizzy78/twodeeparticles
+image: twodeeparticles.png
+title: twodeeparticles
+text: An engine-agnostic 2D particle system simulator for Go.
+technologies:
+  - Go
+  - Ebiten
+ongoing: true
+years: 2020-
+order: 2

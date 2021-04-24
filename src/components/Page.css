@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@import "./typography-0.4.0.css"
+}
+
+h1,
+h2,
+h3 {
+	font-family: "Arvo";
+}
+
+h1 {
+	@apply text-bzbrown;
+
+	&.content {
+		&::after {
+			content: ".";
+			@apply text-bzyellow ml-0.5;
+		}
+	}
+
+	&.head {
+		&::before {
+			content: ".";
+			@apply text-bzyellow mr-0.5;
+		}
+	}
+}

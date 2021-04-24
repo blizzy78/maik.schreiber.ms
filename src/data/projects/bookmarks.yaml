@@ -1,0 +1,13 @@
+url: https://github.com/blizzy78/bookmarks
+image: bookmarks.png
+title: Bookmarks
+text: My personal bookmarks management application. It's rather simplistic, but fast, searchable, and has tags.
+technologies:
+  - Go
+  - React
+  - Bleve
+  - Tailwind CSS
+  - Bootstrap
+ongoing: true
+years: 2021-
+order: 5
