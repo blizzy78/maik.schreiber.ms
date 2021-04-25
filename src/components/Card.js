@@ -9,7 +9,7 @@ const Card = ({children}) => (
 )
 
 const CardImage = ({image, altText}) => {
-  return <GatsbyImage image={getImage(image)} alt={altText} className="mb-3"/>
+  return <GatsbyImage image={getImage(image)} alt={altText} className="mb-3 w-full"/>
 }
 
 const CardBody = ({children}) => (
