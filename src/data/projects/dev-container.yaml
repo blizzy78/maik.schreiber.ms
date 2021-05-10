@@ -1,4 +1,5 @@
 url: https://github.com/blizzy78/dev-container
+image: dev-container.png
 title: Dev Container
 text: An all-in-one dev container for Visual Studio Code. I use it for all my software development.
 technologies:
