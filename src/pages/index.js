@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
-import {Row, Col} from '../components/Grid'
+import {Row} from '../components/Grid'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import ProjectCard from '../components/ProjectCard'
@@ -85,9 +85,7 @@ const ProjectsSection = ({className, title, projects, ongoing}) => (
         projects
           .filter(node => node.ongoing === ongoing)
           .map((node, index) => (
-            <Col key={index}>
-              <ProjectCard project={node}/>
-            </Col>
+            <ProjectCard project={node}/>
           ))
       }
     </Row>
