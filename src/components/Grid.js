@@ -1,16 +1,18 @@
 import React from 'react'
 import classnames from 'classnames'
 
-const Row = ({className, gapClassName, children}) => (
-  <div className={classnames('grid', gapClassName || 'gap-4' , className)}>
-    {children}
-  </div>
-)
+export function Row({className, gapClassName, children}) {
+  return (
+    <div className={classnames('grid', className, gapClassName || 'gap-4')}>
+      {children}
+    </div>
+  )
+}
 
-const Col = ({children}) => (
-  <div className="col grid grid-cols-1">
-    {children}
-  </div>
-)
-
-export {Row, Col}
+export function Col({children}) {
+  return (
+    <div className="col grid grid-cols-1">
+      {children}
+    </div>
+  )
+}

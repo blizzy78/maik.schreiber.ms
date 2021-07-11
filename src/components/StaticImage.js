@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const StaticImage = ({className, path, altText}) => {
+export default function StaticImage({className, path, altText}) {
   const data = useStaticQuery(graphql`{
     images: allFile(filter: {sourceInstanceName: {eq: "images"}}) {
       edges {
@@ -23,5 +23,3 @@ const StaticImage = ({className, path, altText}) => {
     <GatsbyImage image={image} alt={altText} className={className}/>
   )
 }
-
-export default StaticImage
