@@ -1,9 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
 
-export default function Section({className, widthClassName, children}) {
+export default function Section({className, children}) {
   return (
-    <section className={classnames('mx-auto', widthClassName || 'container 2xl:max-w-screen-xl', className)}>
+    <section className={classnames('mx-auto', className)}>
       {children}
     </section>
   )

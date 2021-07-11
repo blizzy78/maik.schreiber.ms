@@ -6,6 +6,7 @@ import Page from '../components/Page'
 import Section from '../components/Section'
 import ProjectCard from '../components/ProjectCard'
 import StaticImage from '../components/StaticImage'
+import classnames from 'classnames'
 
 const Home = ({data}) => {
   const projectsData = useStaticQuery(graphql`{
@@ -30,10 +31,10 @@ const Home = ({data}) => {
 
   return (
     <Page>
-      <Section widthClassName="max-w-screen-md">
-        <h1 className="content text-center">Hi, I'm Maik</h1>
+      <Section className="max-w-screen-md">
+        <h1 className="my-0 content text-center text-bzbrown">Hi, I'm Maik</h1>
 
-        <div className="flex flex-col md:flex-row gap-10">
+        <div className="mt-14 flex flex-col md:flex-row gap-10">
           <div className="md:pt-2">
             <StaticImage path="maik.jpg" altText="Photo of Maik" className="border-l-stripe border-bzyellow w-full md:w-44 md:h-44"/>
           </div>
@@ -60,17 +61,18 @@ const Home = ({data}) => {
         </div>
       </Section>
 
-      <ProjectsSection className="mt-16" title="Ongoing Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={true}/>
-      <ProjectsSection className="mt-16" title="Past Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={false}/>
+      <ProjectsSection className="mt-20" title="Ongoing Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={true}/>
 
-      <Section className="mt-16 text-center">
-        <h1 className="content">Contact Me</h1>
+      <ProjectsSection className="mt-20" title="Past Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={false}/>
 
-        <p>
-          Let's get in contact! You can message me at:
+      <Section className="mt-20 container text-center">
+        <h1 className="my-0 content text-bzbrown">Contact Me</h1>
+
+        <p className="mt-14">
+          I'll be happy to get in contact with you! You can message me at:
         </p>
 
-        <p>
+        <p className="mb-0">
           <OutboundLink href="mailto:maik@schreiber.ms" className="text-bzred">maik@schreiber.ms</OutboundLink>
         </p>
       </Section>
@@ -79,10 +81,10 @@ const Home = ({data}) => {
 }
 
 const ProjectsSection = ({className, title, projects, ongoing}) => (
-  <Section className={className} widthClassName="max-w-screen-lg">
-    <h1 className="content text-center">{title}</h1>
+  <Section className={classnames('max-w-screen-lg', className)}>
+    <h1 className="my-0 content text-center text-bzbrown">{title}</h1>
 
-    <Row className="grid-cols-1 lg:grid-cols-2" gapClassName="gap-14">
+    <Row className="mt-14 grid-cols-1 lg:grid-cols-2" gapClassName="gap-14">
       {
         projects
           .filter(node => node.ongoing === ongoing)

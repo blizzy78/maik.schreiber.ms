@@ -1,9 +1,7 @@
 module.exports = {
   purge: [
     './src/pages/*.js',
-    './src/pages/*.css',
-    './src/components/*.js',
-    './src/components/*.css'
+    './src/components/*.js'
   ],
   variants: {
     extend: {

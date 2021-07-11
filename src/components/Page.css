@@ -17,19 +17,10 @@ h3 {
 }
 
 h1 {
-	@apply text-bzbrown;
-
 	&.content {
 		&::after {
 			content: ".";
 			@apply text-bzyellow ml-0.5;
-		}
-	}
-
-	&.head {
-		&::before {
-			content: ".";
-			@apply text-bzyellow mr-0.5;
 		}
 	}
 }
