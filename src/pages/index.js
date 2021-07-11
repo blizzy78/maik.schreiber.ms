@@ -30,11 +30,11 @@ const Home = ({data}) => {
 
   return (
     <Page>
-      <Section className="mt-10">
-        <h1 className="content">About Me</h1>
+      <Section widthClassName="max-w-screen-md">
+        <h1 className="content text-center">Hi, I'm Maik</h1>
 
-        <div className="flex flex-col md:flex-row">
-          <div className="md:pt-1 md:mr-5 mb-5 md:mb-0">
+        <div className="flex flex-col md:flex-row gap-10">
+          <div className="md:pt-2">
             <StaticImage path="maik.jpg" altText="Photo of Maik" className="border-l-stripe border-bzyellow w-full md:w-44 md:h-44"/>
           </div>
 
@@ -63,12 +63,13 @@ const Home = ({data}) => {
       <ProjectsSection className="mt-16" title="Ongoing Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={true}/>
       <ProjectsSection className="mt-16" title="Past Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={false}/>
 
-      <Section className="mt-16">
-        <h1 className="content">Contact</h1>
+      <Section className="mt-16 text-center">
+        <h1 className="content">Contact Me</h1>
 
         <p>
           Let's get in contact! You can message me at:
         </p>
+
         <p>
           <OutboundLink href="mailto:maik@schreiber.ms" className="text-bzred">maik@schreiber.ms</OutboundLink>
         </p>
@@ -78,10 +79,10 @@ const Home = ({data}) => {
 }
 
 const ProjectsSection = ({className, title, projects, ongoing}) => (
-  <Section className={className}>
-    <h1 className="content">{title}</h1>
+  <Section className={className} widthClassName="max-w-screen-lg">
+    <h1 className="content text-center">{title}</h1>
 
-    <Row className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3" gapClassName="gap-14">
+    <Row className="grid-cols-1 lg:grid-cols-2" gapClassName="gap-14">
       {
         projects
           .filter(node => node.ongoing === ongoing)
