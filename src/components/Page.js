@@ -1,13 +1,13 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
-import {graphql, useStaticQuery} from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import BreakpointReadout from './BreakpointReadout'
 import Section from './Section'
 import '@fontsource/arvo'
 import './Page.css'
 
 const Page = ({children}) => {
-  let data = useStaticQuery(graphql`{
+  const data = useStaticQuery(graphql`{
     images: allFile(
       filter: {sourceInstanceName: {eq: "images"}, relativePath: {eq: "social.png"}}
     ) {
@@ -18,7 +18,8 @@ const Page = ({children}) => {
       }
     }
   }`)
-  let socialImageNode = data.images.edges[0].node
+
+  const socialImageNode = data.images.edges[0].node
 
   return <>
     <Helmet>
@@ -41,17 +42,19 @@ const Page = ({children}) => {
       <body className="px-5 pt-8 pb-20"/>
     </Helmet>
 
-    <BreakpointReadout/>
+    <Section>
+      <h1 className="head my-0 text-right">Maik Schreiber</h1>
 
-    <Section className="mb-10">
-      <h1 className="head arvo mb-3 text-right">Maik Schreiber</h1>
-
-      <div className="bg-bzred h-stripe-lg"/>
-      <div className="bg-bzorange h-stripe-lg"/>
-      <div className="bg-bzyellow h-stripe-lg"/>
+      <div className="mt-3">
+        <div className="bg-bzred h-stripe-lg"/>
+        <div className="bg-bzorange h-stripe-lg"/>
+        <div className="bg-bzyellow h-stripe-lg"/>
+      </div>
     </Section>
 
     {children}
+
+    <BreakpointReadout/>
   </>
 }
 

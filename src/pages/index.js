@@ -1,14 +1,14 @@
 import React from 'react'
-import {graphql, useStaticQuery} from 'gatsby'
-import {OutboundLink} from 'gatsby-plugin-google-gtag'
-import {Row} from '../components/Grid'
+import { graphql, useStaticQuery } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import { Row } from '../components/Grid'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import ProjectCard from '../components/ProjectCard'
 import StaticImage from '../components/StaticImage'
 
 const Home = ({data}) => {
-  let projectsData = useStaticQuery(graphql`{
+  const projectsData = useStaticQuery(graphql`{
     projects: allProjectsYaml(sort: {fields: order, order: ASC}) {
       edges {
         node {
@@ -27,9 +27,10 @@ const Home = ({data}) => {
       }
     }
   }`)
+
   return (
     <Page>
-      <Section className="mb-16">
+      <Section className="mt-10">
         <h1 className="content">About Me</h1>
 
         <div className="flex flex-col md:flex-row">
@@ -59,10 +60,10 @@ const Home = ({data}) => {
         </div>
       </Section>
 
-      <ProjectsSection className="mb-16" title="Ongoing Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={true}/>
-      <ProjectsSection className="mb-16" title="Past Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={false}/>
+      <ProjectsSection className="mt-16" title="Ongoing Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={true}/>
+      <ProjectsSection className="mt-16" title="Past Projects" projects={projectsData.projects.edges.map(({node}) => node)} ongoing={false}/>
 
-      <Section>
+      <Section className="mt-16">
         <h1 className="content">Contact</h1>
 
         <p>

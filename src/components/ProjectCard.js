@@ -1,12 +1,13 @@
 import React from 'react'
-import {OutboundLink} from 'gatsby-plugin-google-gtag'
-import {Card, CardImage, CardBody, CardTitle, CardFooter} from '../components/Card'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import { Card, CardImage, CardBody, CardTitle, CardFooter } from '../components/Card'
 
 const ProjectCard = ({project}) => {
   let title = project.title
   if (!project.ongoing && project.years) {
     title += ' (' + project.years + ')'
   }
+
   return (
     <Card>
       {
@@ -48,16 +49,17 @@ const ProjectCard = ({project}) => {
           </>
         }
       </CardBody>
+
       {
         project.technologies &&
         <CardFooter>
           <small>
-            <div className="inline-block text-bzred mr-1">
+            <div className="inline text-bzred">
               {
                 project.technologies.length > 1 ? 'Technologies:' : 'Technology:'
               }
             </div>
-            <div className="inline-block">
+            <div className="inline ml-1">
               {project.technologies.reduce((a, t) => a + ', ' + t)}
             </div>
           </small>
