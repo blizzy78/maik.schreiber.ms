@@ -3,12 +3,14 @@ import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import BreakpointReadout from './BreakpointReadout'
 import '@fontsource/arvo'
+import '@fontsource/lato'
 import './Page.css'
 
 export default function Page({children}) {
   return <>
     <Helmet>
       <link rel="preload" href="/static/arvo-latin-400-normal-eee79ea9c90aeaf1efe6bbabf290a6af.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+      <link rel="preload" href="/static/lato-latin-400-normal-65e877e527022735c1a1bf5ae6183cf6.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
       <title>Maik Schreiber</title>
       <Meta/>
       <body className="px-5 pt-12 pb-20"/>

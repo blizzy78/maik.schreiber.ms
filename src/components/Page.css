@@ -6,6 +6,10 @@
 	@import "./typography-0.4.0.css"
 }
 
+body {
+	font-family: "Lato";
+}
+
 h1,
 h2,
 h3 {
