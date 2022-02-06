@@ -1,0 +1,8 @@
+url: https://github.com/blizzy78/varnamelen
+title: varnamelen
+text: A Go Analyzer checking that the length of a variable's name matches its usage scope.
+technologies:
+  - Go
+ongoing: true
+years: 2021-
+order: 2
