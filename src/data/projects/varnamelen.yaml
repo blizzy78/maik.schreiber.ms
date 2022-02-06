@@ -1,6 +1,6 @@
 url: https://github.com/blizzy78/varnamelen
 title: varnamelen
-text: A Go Analyzer checking that the length of a variable's name matches its usage scope.
+text: A Go linter/Analyzer checking that the length of a variable's name matches its usage scope. This linter is also part of the popular golangci-lint package.
 technologies:
   - Go
 ongoing: true
