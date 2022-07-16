@@ -5,7 +5,7 @@ text: My personal bookmarks management application. It's rather simplistic, but 
 technologies:
   - Go
   - React
-  - Bleve
+  - Algolia
   - Tailwind CSS
 ongoing: true
 years: 2021-
