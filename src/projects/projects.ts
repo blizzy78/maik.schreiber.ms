@@ -22,7 +22,7 @@ export const Projects: Project[] = [
     url: 'https://github.com/blizzy78/varnamelen',
     image: VarNameLenImage,
     title: 'varnamelen',
-    description: 'A Go linter/Analyzer checking that the length of a variable\'s name matches its usage scope. This linter is also part of the popular golangci-lint package.',
+    description: 'A Go linter/Analyzer checking that the length of a variable\'s name matches its usage scope. This linter is also part of the popular golangci-lint application.',
     technologies: ['Go'],
     startYear: 2021
   },
