@@ -17,18 +17,18 @@ export const App = (): JSX.Element => {
     <Head/>
 
     <main>
-      <div className="mx-5 sm:mx-8 mt-12 mb-24">
-        <div className="container 2xl:max-w-screen-xl mx-auto flex flex-col gap-20">
+      <div className="mt-12 mb-24">
+        <div className="flex flex-col gap-20">
           <section>
-            <MaikCard/>
+            <MaikSectionContents/>
+          </section>
+
+          <section className="dark:bg-slate-700 py-6">
+            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800" title="Ongoing Projects" projects={activeProjects}/>
           </section>
 
           <section>
-            <CardsList title="Ongoing Projects" projects={activeProjects}/>
-          </section>
-
-          <section>
-            <CardsList title="Past Projects" projects={inactiveProjects}/>
+            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-800" title="Past Projects" projects={inactiveProjects}/>
           </section>
         </div>
       </div>
@@ -80,6 +80,14 @@ const Head = (): JSX.Element => (
   </Helmet.Helmet>
 )
 
+const MaikSectionContents = (): JSX.Element => (
+  <div className="mx-5 sm:mx-8">
+    <div className="container 2xl:max-w-screen-xl mx-auto">
+      <MaikCard/>
+    </div>
+  </div>
+)
+
 const MaikCard = (): JSX.Element => (
   <Card className="w-full xl:w-auto md:w-3/4 xl:max-w-screen-lg mx-auto flex flex-col xl:flex-row">
     <div className="xl:flex-shrink-0 relative">
@@ -122,26 +130,44 @@ const MaikCard = (): JSX.Element => (
   </Card>
 )
 
-const CardsList = ({ title, projects }: {
+const CardsListSectionContents = ({ sectionBgColorClassName, cardBgColorClassName, title, projects }: {
+    sectionBgColorClassName: string
+    cardBgColorClassName?: string
     title: string
     projects: Projects.Project[]
   }): JSX.Element => (
 
   <div className="flex flex-col gap-12">
-    <h1 className="self-center text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
+    <h1 className={classNames('py-5 text-2xl font-headline font-semibold text-center after:content-[\'.\'] after:ml-[0.125rem] dark:after:text-bzyellow sticky top-0 z-10', sectionBgColorClassName)}>
       {title}
     </h1>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
-      {
-        projects.map(p => <ProjectCard key={p.title} project={p}/>)
-      }
+    <div className="mx-5 sm:mx-8">
+      <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
+        <CardsList cardBgColorClassName={cardBgColorClassName} projects={projects}/>
+      </div>
     </div>
   </div>
 )
 
-const ProjectCard = ({ project }: { project: Projects.Project }): JSX.Element => (
-  <Card url={project.url} className="flex flex-col">
+const CardsList = ({ cardBgColorClassName, projects }: {
+    cardBgColorClassName?: string
+    projects: Projects.Project[]
+  }): JSX.Element => (
+
+  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+    {
+      projects.map(p => <ProjectCard colorClassName={cardBgColorClassName} key={p.title} project={p}/>)
+    }
+  </div>
+)
+
+const ProjectCard = ({ colorClassName, project }: {
+    colorClassName?: string
+    project: Projects.Project
+  }): JSX.Element => (
+
+  <Card url={project.url} className="flex flex-col" colorClassName={colorClassName}>
     <div className={classNames('flex-shrink-0', !project.image && 'hidden md:block', project.image && 'relative')}>
       <figure>
         <picture>
@@ -199,13 +225,14 @@ const ProjectCard = ({ project }: { project: Projects.Project }): JSX.Element =>
   </Card>
 )
 
-const Card = ({ className, url, children }: {
+const Card = ({ className, colorClassName = 'dark:bg-slate-700 dark:shadow-slate-900', url, children }: {
     className?: string
+    colorClassName?: string
     url?: string
     children: ReactNode
   }): JSX.Element => {
 
-  const cssClass = classNames('dark:bg-slate-700 shadow-xl dark:shadow-slate-900 rounded-xl', className)
+  const cssClass = classNames('shadow-xl rounded-xl', className, colorClassName)
 
   if (url) {
     return (

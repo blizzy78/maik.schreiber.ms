@@ -2,12 +2,13 @@
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class',
+
   theme: {
     linearGradientColors: theme => theme('colors'),
 
     extend: {
       colors: {
-        bzyellow: '#E7B232'
+        bzyellow: 'rgba(231, 178, 50, 1)'
       },
 
       width: {
@@ -24,6 +25,7 @@ module.exports = {
       }
     }
   },
+
   plugins: [
     require('tailwindcss-gradients')
   ]
