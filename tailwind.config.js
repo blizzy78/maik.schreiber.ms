@@ -1,24 +1,30 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [
-    './src/pages/*.js',
-    './src/components/*.js'
-  ],
-  variants: {
-    extend: {
-      padding: ['first', 'last']
-    }
-  },
+  content: ['./src/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
+    linearGradientColors: theme => theme('colors'),
+
     extend: {
       colors: {
-        'bzyellow': '#E7B232',
-        'bzred': '#E87759',
-        'bzlight': '#F7F0DF',
-        'bzbrown': '#694823'
+        bzyellow: '#E7B232'
       },
-      borderWidth: {
-        'stripe': '4px'
+
+      width: {
+        '1/8': '12.5%'
+      },
+
+      height: {
+        '1/8': '12.5%'
+      },
+
+      fontFamily: {
+        headline: ['Arvo'],
+        copy: ['Lato']
       }
     }
-  }
+  },
+  plugins: [
+    require('tailwindcss-gradients')
+  ]
 }

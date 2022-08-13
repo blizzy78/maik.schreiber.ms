@@ -1,5 +1,5 @@
 module github.com/blizzy78/maik.schreiber.ms
 
-go 1.16
+go 1.19
 
-require github.com/magefile/mage v1.11.0
+require github.com/magefile/mage v1.13.0

@@ -1,32 +1,43 @@
-//+build mage
+//go:build mage
+// +build mage
 
 package main
 
 import (
 	"context"
+	"os"
 
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 )
 
-// Dev runs Gatsby in development mode.
-func Dev() error {
-	return sh.RunV("gatsby", "develop")
-}
+var Default = Build //nolint:deadcode // mage uses this
 
-// Build runs Gatsby to build the application.
+// Build builds the application.
 func Build() error {
-	return sh.Run("gatsby", "build")
+	if err := os.RemoveAll("build"); err != nil {
+		return err
+	}
+
+	if err := sh.Run("npm", "run", "build"); err != nil {
+		return err
+	}
+
+	if err := sh.Run("npm", "run", "snap"); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Deploy updates the live server with a new build of the application.
-func Deploy(ctx context.Context) error {
+func Deploy(ctx context.Context) error { //nolint:deadcode // mage uses this
 	mg.CtxDeps(ctx, Build)
 
-	if err := sh.Run("tar", "cjpf", "maikschreiber.tar.bz2", "public"); err != nil {
+	if err := sh.Run("tar", "cjpf", "maikschreiber.tar.bz2", "build"); err != nil {
 		return err
 	}
-	defer sh.Rm("maikschreiber.tar.bz2")
+	defer sh.Rm("maikschreiber.tar.bz2") //nolint:errcheck // ignore error
 
 	if err := sh.Run("scp", "maikschreiber.tar.bz2", "mickey@blizzy.de:"); err != nil {
 		return err

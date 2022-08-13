@@ -1,9 +1,0 @@
-url: https://github.com/blizzy78/conditional-http
-image: conditional-http.png
-title: Conditional HTTP Middleware for Go
-text: Provides middleware for conditional HTTP requests supporting the ETag, Last-Modified, If-Modified-Since, and If-None-Match headers.
-technologies:
-  - Go
-ongoing: true
-years: 2021-
-order: 4

@@ -1,8 +1,0 @@
-url: https://github.com/blizzy78/copper
-title: Copper
-text: A template rendering engine written in Go. It is agnostic of any HTTP router or any other framework and can also be used standalone.
-technologies:
-  - Go
-ongoing: true
-years: 2019-
-order: 5
