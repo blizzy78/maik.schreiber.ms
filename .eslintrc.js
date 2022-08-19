@@ -21,6 +21,7 @@ module.exports = {
     semi: ['error', 'never'],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/display-name': 'off'
+    'react/display-name': 'off',
+    'react/react-in-jsx-scope': 'off'
   }
 }

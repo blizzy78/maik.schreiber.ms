@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react'
-import * as Helmet from 'react-helmet'
-import { BreakpointReadout } from './BreakpointReadout'
-import * as Projects from './projects/projects'
-import classNames from 'classnames'
 import '@fontsource/arvo'
 import '@fontsource/lato'
+import classNames from 'classnames'
+import { ReactNode } from 'react'
+import * as Helmet from 'react-helmet'
+import { BreakpointReadout } from './BreakpointReadout'
 import * as MaikImage from './maik.jpg'
-import * as SocialImage from './social.png'
 import * as EmptyImage from './projects/empty.png'
+import * as Projects from './projects/projects'
+import * as SocialImage from './social.png'
 
 export const App = (): JSX.Element => {
   const activeProjects = Projects.Projects.filter(p => !p.endYear)
@@ -167,16 +167,55 @@ const ProjectCard = ({ colorClassName, project }: {
     project: Projects.Project
   }): JSX.Element => (
 
+  // card widths:
+  // 2xl - 395px
+  // xl - 395px
+  // lg - 488px
+  // md - 360px
+  // sm - 640px
+  // xs - 100%
+
   <Card url={project.url} className="flex flex-col" colorClassName={colorClassName}>
-    <div className={classNames('flex-shrink-0', !project.image && 'hidden md:block', project.image && 'relative')}>
+    <div className={classNames('flex-shrink-0', !project.images && 'hidden md:block', project.images && 'relative')}>
       <figure>
         <picture>
-          <img src={project.image ? project.image.default : EmptyImage.default} className="w-full rounded-t-xl" alt={project.image ? project.title : ''}/>
+          {
+            project.images && <>
+              <source type="image/png" srcSet={project.images.lg.default + ' 800w'}
+                media={
+                  // lg
+                  '((min-width: 1024px) and (max-width: 1279px)) or ' +
+                  // sm
+                  '((min-width: 640px) and (max-width: 767px)) or ' +
+                  // xs > 400px
+                  '((min-width: 401px) and (max-width: 639px))'
+                }/>
+
+              <source type="image/png" srcSet={project.images.md.default + ' 400w'}
+                media={
+                  // 2xl
+                  '(min-width: 1536px) or ' +
+                  // xl
+                  '((min-width: 1280px) and (max-width: 1535px)) or ' +
+                  // md
+                  '((min-width: 768px) and (max-width: 1023px)) or ' +
+                  // xs <= 400px
+                  '(max-width: 400px)'
+                }/>
+
+              <img src={project.images.lg.default} className="w-full rounded-t-xl" alt={project.title}/>
+            </>
+          }
+
+          {
+            !project.images &&
+            <img src={EmptyImage.default} className="w-full rounded-t-xl" alt=""/>
+          }
         </picture>
       </figure>
 
       {
-        project.image &&
+        project.images &&
         <div className="absolute w-full h-1/8 bottom-0 dark:bg-gradient-b-slate-800"></div>
       }
     </div>
