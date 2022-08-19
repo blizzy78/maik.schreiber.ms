@@ -1,11 +1,12 @@
 import * as BookmarksImage from './bookmarks.png'
-import * as VarNameLenImage from './varnamelen.png'
-import * as TwoDeeParticlesImage from './twodeeparticles.png'
 import * as ConditionalHTTPImage from './conditional-http.png'
+import * as ConsistentImage from './consistent.png'
 import * as DevContainerImage from './dev-container.png'
+import * as EbitenUIImage from './ebitenui.png'
 import * as KSPToolbarImage from './ksp-toolbar.png'
 import * as LighthouseImage from './lighthouse.png'
-import * as EbitenUIImage from './ebitenui.png'
+import * as TwoDeeParticlesImage from './twodeeparticles.png'
+import * as VarNameLenImage from './varnamelen.png'
 
 export interface Project {
   url: string
@@ -18,6 +19,15 @@ export interface Project {
 }
 
 export const Projects: Project[] = [
+  {
+    url: 'https://github.com/blizzy78/consistent',
+    image: ConsistentImage,
+    title: 'consistent',
+    description: 'A Go linter/Analyzer that checks that common language constructs are used consistently.',
+    technologies: ['Go'],
+    startYear: 2022
+  },
+
   {
     url: 'https://github.com/blizzy78/varnamelen',
     image: VarNameLenImage,
