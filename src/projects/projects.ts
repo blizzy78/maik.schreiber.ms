@@ -65,7 +65,7 @@ export const Projects: Project[] = [
     },
     title: 'Bookmarks',
     description: 'My personal bookmarks management application. It\'s rather simplistic, but fast, searchable, and has tags.',
-    technologies: ['Go', 'React', 'Algolia', 'Tailwind CSS'],
+    technologies: ['Go', 'React', 'TypeScript', 'Algolia', 'Mantine', 'Tailwind CSS'],
     startYear: 2021
   },
 
