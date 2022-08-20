@@ -168,12 +168,12 @@ const ProjectCard = ({ colorClassName, project }: {
   }): JSX.Element => (
 
   // card widths:
-  // 2xl - 395px
-  // xl - 395px
-  // lg - 488px
-  // md - 360px
-  // sm - 640px
-  // xs - 100%
+  // 2xl - 395px -> 400px
+  // xl  - 395px -> 400px
+  // lg  - 488px -> 800px
+  // md  - 360px -> 400px
+  // sm  - 640px -> 800px
+  // xs  - 100vw -> 800px
 
   <Card url={project.url} className="flex flex-col" colorClassName={colorClassName}>
     <div className={classNames('flex-shrink-0', !project.images && 'hidden md:block', project.images && 'relative')}>
@@ -187,8 +187,8 @@ const ProjectCard = ({ colorClassName, project }: {
                   '((min-width: 1024px) and (max-width: 1279px)) or ' +
                   // sm
                   '((min-width: 640px) and (max-width: 767px)) or ' +
-                  // xs > 400px
-                  '((min-width: 401px) and (max-width: 639px))'
+                  // xs
+                  '(max-width: 639px)'
                 }/>
 
               <source type="image/png" srcSet={project.images.md.default + ' 400w'}
@@ -198,9 +198,7 @@ const ProjectCard = ({ colorClassName, project }: {
                   // xl
                   '((min-width: 1280px) and (max-width: 1535px)) or ' +
                   // md
-                  '((min-width: 768px) and (max-width: 1023px)) or ' +
-                  // xs <= 400px
-                  '(max-width: 400px)'
+                  '((min-width: 768px) and (max-width: 1023px))'
                 }/>
 
               <img src={project.images.lg.default} className="w-full rounded-t-xl" alt={project.title}/>
