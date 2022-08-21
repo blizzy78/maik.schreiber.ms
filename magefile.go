@@ -11,7 +11,7 @@ import (
 	"github.com/magefile/mage/sh"
 )
 
-var Default = Build //nolint:deadcode // mage uses this
+var Default = Deploy //nolint:deadcode // mage uses this
 
 // Build builds the application.
 func Build() error {
