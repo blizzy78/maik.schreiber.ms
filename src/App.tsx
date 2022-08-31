@@ -50,6 +50,7 @@ const Head = (): JSX.Element => (
 
     <title>Maik Schreiber</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo="/>
+    <link rel="canonical" href="https://maik.schreiber.ms"/>
 
     <meta property="og:url" content="https://maik.schreiber.ms"/>
     <meta property="og:type" content="website"/>
