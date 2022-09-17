@@ -12,6 +12,8 @@ import * as KSPToolbar400Image from './ksp-toolbar-400.png'
 import * as KSPToolbarImage from './ksp-toolbar.png'
 import * as Lighthouse400Image from './lighthouse-400.png'
 import * as LighthouseImage from './lighthouse.png'
+import * as Smooth2DCamera400Image from './smooth-2d-camera-400.png'
+import * as Smooth2DCameraImage from './smooth-2d-camera.png'
 import * as TwoDeeParticles400Image from './twodeeparticles-400.png'
 import * as TwoDeeParticlesImage from './twodeeparticles.png'
 import * as VarNameLen400Image from './varnamelen-400.png'
@@ -141,6 +143,19 @@ export const Projects: Project[] = [
   },
 
   {
+    url: 'https://assetstore.unity.com/packages/tools/camera/smooth-2d-camera-40914',
+    images: {
+      lg: Smooth2DCameraImage,
+      md: Smooth2DCamera400Image,
+    },
+    title: 'Smooth 2D Camera',
+    description: 'Improves the rendering of the 2D camera in Unity 3D to display crisp and clear images, and avoid a pixelated or blurry look.',
+    technologies: ['C#', 'Unity 3D'],
+    startYear: 2015,
+    endYear: 2015
+  },
+
+  {
     url: 'https://blendswap.com/blend/13091',
     images: {
       lg: LighthouseImage,
@@ -151,5 +166,5 @@ export const Projects: Project[] = [
     technologies: ['Blender'],
     startYear: 2014,
     endYear: 2014
-  },
+  }
 ]
