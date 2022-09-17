@@ -15,7 +15,7 @@ var Default = Deploy //nolint:deadcode // mage uses this
 
 // Build builds the application.
 func Build() error {
-	if err := os.RemoveAll("build"); err != nil {
+	if err := os.RemoveAll("dist"); err != nil {
 		return err
 	}
 
@@ -34,7 +34,7 @@ func Build() error {
 func Deploy(ctx context.Context) error { //nolint:deadcode // mage uses this
 	mg.CtxDeps(ctx, Build)
 
-	if err := sh.Run("tar", "cjpf", "maikschreiber.tar.bz2", "build"); err != nil {
+	if err := sh.Run("tar", "cjpf", "maikschreiber.tar.bz2", "dist"); err != nil {
 		return err
 	}
 	defer sh.Rm("maikschreiber.tar.bz2") //nolint:errcheck // ignore error

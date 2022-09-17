@@ -5,8 +5,8 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Frontend",
-      "command": "npm start",
+      "name": "maik.schreiber.ms",
+      "command": "npm run dev",
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}"

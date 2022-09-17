@@ -45,9 +45,6 @@ const Head = (): JSX.Element => (
   <Helmet.Helmet>
     <html lang="en" className="dark"/>
 
-    <link rel="preload" href="/static/media/lato-latin-400-normal.be36596da218e1eec01c.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-    <link rel="preload" href="/static/media/arvo-latin-400-normal.eee79ea9c90aeaf1efe6.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-
     <title>Maik Schreiber</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo="/>
     <link rel="canonical" href="https://maik.schreiber.ms"/>
