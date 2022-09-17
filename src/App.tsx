@@ -4,6 +4,9 @@ import classNames from 'classnames'
 import { ReactNode } from 'react'
 import * as Helmet from 'react-helmet'
 import { BreakpointReadout } from './BreakpointReadout'
+import { ReactComponent as HandWaveIcon } from './icons/hand-wave-outline.svg'
+import { ReactComponent as WeatherNightIcon } from './icons/weather-night.svg'
+import { ReactComponent as WeatherSunnyIcon } from './icons/weather-sunny.svg'
 import * as MaikImage from './maik.jpg'
 import * as EmptyImage from './projects/empty.png'
 import * as Projects from './projects/projects'
@@ -24,11 +27,13 @@ export const App = (): JSX.Element => {
           </section>
 
           <section className="dark:bg-slate-700 py-6">
-            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800" title="Ongoing Projects" projects={activeProjects}/>
+            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800"
+              icon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
           </section>
 
           <section>
-            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-800" title="Past Projects" projects={inactiveProjects}/>
+            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-800"
+              icon={WeatherNightIcon} title="Past Projects" projects={inactiveProjects}/>
           </section>
         </div>
       </div>
@@ -99,9 +104,13 @@ const MaikCard = (): JSX.Element => (
     </div>
 
     <div className="xl:flex-grow p-6 md:p-8 flex flex-col gap-5">
-      <h1 className="text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] after:text-bzyellow">
-        Hi, I&apos;m Maik
-      </h1>
+      <div className="flex flex-row gap-3 items-center">
+        <HandWaveIcon className="w-8 h-8" fill="rgb(203 213 225 / var(--tw-text-opacity))" /* text-slate-300 */ />
+
+        <h1 className="text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
+          Hi, I&apos;m Maik
+        </h1>
+      </div>
 
       <div>
         Born in 1978, I&apos;ve started developing software in 1994. In 2003, I started working
@@ -128,25 +137,34 @@ const MaikCard = (): JSX.Element => (
   </Card>
 )
 
-const CardsListSectionContents = ({ sectionBgColorClassName, cardBgColorClassName, title, projects }: {
+const CardsListSectionContents = ({ sectionBgColorClassName, cardBgColorClassName, icon, title, projects }: {
     sectionBgColorClassName: string
     cardBgColorClassName?: string
+    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
     title: string
     projects: Projects.Project[]
-  }): JSX.Element => (
+  }): JSX.Element => {
 
-  <div className="flex flex-col gap-12">
-    <h1 className={classNames('py-5 text-2xl font-headline font-semibold text-center after:content-[\'.\'] after:ml-[0.125rem] dark:after:text-bzyellow sticky top-0 z-10', sectionBgColorClassName)}>
-      {title}
-    </h1>
+  const Icon = icon
 
-    <div className="mx-5 sm:mx-8">
-      <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
-        <CardsList cardBgColorClassName={cardBgColorClassName} projects={projects}/>
+  return (
+    <div className="flex flex-col gap-8">
+      <div className={classNames('py-5 flex flex-row gap-3 items-center justify-center sticky top-0 z-10', sectionBgColorClassName)}>
+        <Icon className="w-8 h-8" fill="rgb(203 213 225 / var(--tw-text-opacity))" /* text-slate-300 */ />
+
+        <h1 className="text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
+          {title}
+        </h1>
+      </div>
+
+      <div className="mx-5 sm:mx-8">
+        <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
+          <CardsList cardBgColorClassName={cardBgColorClassName} projects={projects}/>
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 const CardsList = ({ cardBgColorClassName, projects }: {
     cardBgColorClassName?: string
