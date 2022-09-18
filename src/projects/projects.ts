@@ -12,6 +12,8 @@ import * as KSPToolbar400Image from './ksp-toolbar-400.png'
 import * as KSPToolbarImage from './ksp-toolbar.png'
 import * as Lighthouse400Image from './lighthouse-400.png'
 import * as LighthouseImage from './lighthouse.png'
+import * as Luminoso400Image from './luminoso-400.png'
+import * as LuminosoImage from './luminoso.png'
 import * as Smooth2DCamera400Image from './smooth-2d-camera-400.png'
 import * as Smooth2DCameraImage from './smooth-2d-camera.png'
 import * as TwoDeeParticles400Image from './twodeeparticles-400.png'
@@ -159,6 +161,19 @@ export const Projects: Project[] = [
     title: 'Smooth 2D Camera',
     description: 'Improves the rendering of the 2D camera in Unity 3D to display crisp and clear images, and avoid a pixelated or blurry look.',
     technologies: ['C#', 'Unity 3D'],
+    startYear: 2015,
+    endYear: 2015
+  },
+
+  {
+    url: 'https://store.steampowered.com/app/364660/Luminoso/',
+    images: {
+      lg: LuminosoImage,
+      md: Luminoso400Image,
+    },
+    title: 'Luminoso',
+    description: 'A puzzle game with laser beams.',
+    technologies: ['C#', 'Unity 3D', 'Blender'],
     startYear: 2015,
     endYear: 2015
   },
