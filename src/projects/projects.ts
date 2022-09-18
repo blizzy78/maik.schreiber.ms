@@ -96,6 +96,14 @@ export const Projects: Project[] = [
   },
 
   {
+    url: 'https://github.com/blizzy78/textsimilarity',
+    title: 'textsimilarity',
+    description: 'A Go package to analyze files for copied and pasted (and possibly slightly modified) text.',
+    technologies: ['Go'],
+    startYear: 2021
+  },
+
+  {
     url: 'https://github.com/blizzy78/twodeeparticles',
     images: {
       lg: TwoDeeParticlesImage,
@@ -166,5 +174,14 @@ export const Projects: Project[] = [
     technologies: ['Blender'],
     startYear: 2014,
     endYear: 2014
+  },
+
+  {
+    url: 'http://aminet.net/package/comm/mail/MailDemon4_11',
+    title: 'MailDemon',
+    description: 'A powerful mailing list manager for Amiga-based bulletin board systems.',
+    technologies: ['C', 'Magic User Interface'],
+    startYear: 1995,
+    endYear: 1996
   }
 ]
