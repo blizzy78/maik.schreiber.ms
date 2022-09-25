@@ -27,13 +27,20 @@ export const App = (): JSX.Element => {
           </section>
 
           <section>
-            <blockquote className="flex flex-col gap-3 items-center">
-              <p className="text-center text-xl italic">
-                Any fool can write code that a computer can understand.<br/>
-                Good programmers write code that <strong className="bold">humans</strong> can understand.
-              </p>
+            <blockquote className="mx-5 sm:mx-8 flex flex-col gap-4 lg:gap-3 items-center">
+              <div className="flex flex-col gap-2 lg:gap-1 items-center">
+                <p className="text-center text-xl italic">
+                  Any fool can write code <br className="md:hidden"/>
+                  that a computer can understand.
+                </p>
 
-              <p>
+                <p className="text-center text-xl italic">
+                  Good programmers write code <br className="md:hidden"/>
+                  that <strong className="bold">humans</strong> can understand.
+                </p>
+              </div>
+
+              <p className="dark:text-slate-400">
                 &mdash; Martin Fowler
               </p>
             </blockquote>
