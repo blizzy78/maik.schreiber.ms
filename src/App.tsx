@@ -26,6 +26,19 @@ export const App = (): JSX.Element => {
             <MaikSectionContents/>
           </section>
 
+          <section>
+            <blockquote className="flex flex-col gap-3 items-center">
+              <p className="text-center text-xl italic">
+                Any fool can write code that a computer can understand.<br/>
+                Good programmers write code that <strong className="bold">humans</strong> can understand.
+              </p>
+
+              <p>
+                &mdash; Martin Fowler
+              </p>
+            </blockquote>
+          </section>
+
           <section className="dark:bg-slate-700 py-6">
             <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800"
               icon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
@@ -103,8 +116,8 @@ const MaikCard = (): JSX.Element => (
       <div className="absolute w-full h-1/8 bottom-0 dark:bg-gradient-b-slate-800 xl:w-1/8 xl:h-full xl:top-0 xl:right-0 dark:xl:bg-gradient-r-slate-800"></div>
     </div>
 
-    <div className="xl:flex-grow p-6 md:p-8 flex flex-col gap-5">
-      <div className="flex flex-row gap-3 items-center">
+    <div className="xl:flex-grow px-6 md:px-8 xl:py-8 flex flex-col xl:gap-5">
+      <div className="py-6 md:py-8 xl:py-0 flex flex-row gap-3 items-center dark:bg-slate-700 sticky xl:static top-0 xl:top-auto">
         <HandWaveIcon className="w-8 h-8" fill="rgb(203 213 225 / var(--tw-text-opacity))" /* text-slate-300 */ />
 
         <h1 className="text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
@@ -112,27 +125,29 @@ const MaikCard = (): JSX.Element => (
         </h1>
       </div>
 
-      <div>
-        Born in 1978, I&apos;ve started developing software in 1994. In 2003, I started working
-        for <a href="https://subshell.com" rel="noopener" className="dark:text-bzyellow">subshell GmbH</a> in
-        Hamburg, Germany, where I am working on our flagship product, Sophora CMS, as well as various other
-        bigger and smaller projects. I am still working for subshell to this day.
+      <div className="mb-6 md:mb-8 xl:mb-0 flex flex-col gap-5">
+        <div>
+          Born in 1978, I&apos;ve started developing software in 1994. In 2003, I started working
+          for <a href="https://subshell.com" rel="noopener" className="dark:text-bzyellow">subshell GmbH</a> in
+          Hamburg, Germany, where I am working on our flagship product, Sophora CMS, as well as various other
+          bigger and smaller projects. I am still working for subshell to this day.
+        </div>
+
+        <p>
+          I have worked with many different technologies and programming languages over the years,
+          most notably Java, Go, C#, and C. As projects come and go, I use frontend/backend frameworks,
+          databases, and other technologies as appropriate. I&apos;m always trying to stay on top of what&apos;s fresh.
+        </p>
+
+        <p>
+          In my spare time I work on a variety of different projects which you can see below. Most of them
+          are open source.
+        </p>
+
+        <p>
+          I&apos;ll be happy to get in contact with you: <a href="mailto:maik@schreiber.ms" className="dark:text-bzyellow">maik@schreiber.ms</a>
+        </p>
       </div>
-
-      <p>
-        I have worked with many different technologies and programming languages over the years,
-        most notably Java, Go, C#, and C. As projects come and go, I use frontend/backend frameworks,
-        databases, and other technologies as appropriate. I&apos;m always trying to stay on top of what&apos;s fresh.
-      </p>
-
-      <p>
-        In my spare time I work on a variety of different projects which you can see below. Most of them
-        are open source.
-      </p>
-
-      <p>
-        I&apos;ll be happy to get in contact with you: <a href="mailto:maik@schreiber.ms" className="dark:text-bzyellow">maik@schreiber.ms</a>
-      </p>
     </div>
   </Card>
 )
