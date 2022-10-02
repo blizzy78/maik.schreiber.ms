@@ -8,6 +8,8 @@ import * as DevContainer400Image from './dev-container-400.png'
 import * as DevContainerImage from './dev-container.png'
 import * as EbitenUI400Image from './ebitenui-400.png'
 import * as EbitenUIImage from './ebitenui.png'
+import * as KesslerSyndrome400Image from './kessler-syndrome-400.png'
+import * as KesslerSyndromeImage from './kessler-syndrome.png'
 import * as KSPToolbar400Image from './ksp-toolbar-400.png'
 import * as KSPToolbarImage from './ksp-toolbar.png'
 import * as Lighthouse400Image from './lighthouse-400.png'
@@ -160,6 +162,19 @@ export const Projects: Project[] = [
     },
     title: 'Smooth 2D Camera',
     description: 'Improves the rendering of the 2D camera in Unity 3D to display crisp and clear images, and avoid a pixelated or blurry look.',
+    technologies: ['C#', 'Unity 3D'],
+    startYear: 2015,
+    endYear: 2015
+  },
+
+  {
+    url: 'https://play.google.com/store/apps/details?id=de.blizzy.kesslersyndrome',
+    images: {
+      lg: KesslerSyndromeImage,
+      md: KesslerSyndrome400Image,
+    },
+    title: 'Kessler Syndrome',
+    description: 'A game of skill where you launch satellites into orbit.',
     technologies: ['C#', 'Unity 3D'],
     startYear: 2015,
     endYear: 2015
