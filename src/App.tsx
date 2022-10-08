@@ -60,7 +60,7 @@ export const App = (): JSX.Element => {
     </main>
 
     {
-      process.env.NODE_ENV === 'development' &&
+      import.meta.env.DEV &&
       <BreakpointReadout className="fixed right-2 top-2 opacity-80 z-50"/>
     }
   </>
@@ -289,13 +289,18 @@ const ProjectCard = ({ colorClassName, project }: {
               </div>{' '}
 
               {
-                !project.endYear ? 'Since ' + project.startYear : (project.endYear > project.startYear ? project.startYear + '-' + project.endYear : project.startYear)
+                !!project.endYear ? (
+                  project.endYear > project.startYear ? <>
+                    {project.startYear}&ndash;{project.endYear}
+                  </> :
+                  project.startYear
+                ) :
+                'Since ' + project.startYear
               }
             </div>
           }
         </div>
       }
-
     </div>
   </Card>
 )
