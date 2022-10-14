@@ -28,7 +28,7 @@ export interface Project {
   images?: Images
   title: string
   description: string
-  technologies?: string[]
+  technologies: string[]
   startYear: number
   endYear?: number
 }
@@ -38,7 +38,7 @@ export interface Images {
   md: typeof import('*.png')
 }
 
-export const Projects: Project[] = [
+export const projects: Project[] = [
   {
     url: 'https://github.com/blizzy78/consistent',
     images: {

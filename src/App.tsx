@@ -2,7 +2,7 @@ import '@fontsource/arvo'
 import '@fontsource/lato'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
-import * as Helmet from 'react-helmet'
+import * as Helmet from 'react-helmet-async'
 import { BreakpointReadout } from './BreakpointReadout'
 import { ReactComponent as HandWaveIcon } from './icons/hand-wave-outline.svg'
 import { ReactComponent as WeatherNightIcon } from './icons/weather-night.svg'
@@ -12,13 +12,25 @@ import * as EmptyImage from './projects/empty.png'
 import * as Projects from './projects/projects'
 import * as SocialImage from './social.png'
 
-export const App = (): JSX.Element => {
-  const activeProjects = Projects.Projects.filter(p => !p.endYear)
-  const inactiveProjects = Projects.Projects.filter(p => !!p.endYear)
-
-  return <>
+export const App = () => (
+  <Providers>
     <Head/>
 
+    <AppContents/>
+  </Providers>
+)
+
+const Providers = ({ children }: { children: ReactNode }) => (
+  <Helmet.HelmetProvider>
+    {children}
+  </Helmet.HelmetProvider>
+)
+
+const AppContents = () => {
+  const activeProjects = Projects.projects.filter(p => !p.endYear)
+  const inactiveProjects = Projects.projects.filter(p => !!p.endYear)
+
+  return <>
     <main>
       <div className="mt-12 mb-24">
         <div className="flex flex-col gap-20">
@@ -27,33 +39,17 @@ export const App = (): JSX.Element => {
           </section>
 
           <section>
-            <blockquote className="mx-5 sm:mx-8 flex flex-col gap-4 lg:gap-3 items-center">
-              <div className="flex flex-col gap-2 lg:gap-1 items-center">
-                <p className="text-center text-xl italic">
-                  Any fool can write code <br className="md:hidden"/>
-                  that a computer can understand.
-                </p>
-
-                <p className="text-center text-xl italic">
-                  Good programmers write code <br className="md:hidden"/>
-                  that <strong className="bold">humans</strong> can understand.
-                </p>
-              </div>
-
-              <p className="dark:text-slate-400">
-                &mdash; Martin Fowler
-              </p>
-            </blockquote>
+            <QuoteSectionContents/>
           </section>
 
           <section className="dark:bg-slate-700 py-6">
-            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800"
-              icon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
+            <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800"
+              titleIcon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
           </section>
 
           <section>
-            <CardsListSectionContents sectionBgColorClassName="dark:bg-slate-800"
-              icon={WeatherNightIcon} title="Past Projects" projects={inactiveProjects}/>
+            <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-800"
+              titleIcon={WeatherNightIcon} title="Past Projects" projects={inactiveProjects}/>
           </section>
         </div>
       </div>
@@ -66,7 +62,7 @@ export const App = (): JSX.Element => {
   </>
 }
 
-const Head = (): JSX.Element => (
+const Head = () => (
   <Helmet.Helmet>
     <html lang="en" className="dark"/>
 
@@ -103,7 +99,7 @@ const Head = (): JSX.Element => (
   </Helmet.Helmet>
 )
 
-const MaikSectionContents = (): JSX.Element => (
+const MaikSectionContents = () => (
   <div className="mx-5 sm:mx-8">
     <div className="container 2xl:max-w-screen-xl mx-auto">
       <MaikCard/>
@@ -111,7 +107,7 @@ const MaikSectionContents = (): JSX.Element => (
   </div>
 )
 
-const MaikCard = (): JSX.Element => (
+const MaikCard = () => (
   <Card className="w-full xl:w-auto md:w-3/4 xl:max-w-screen-lg mx-auto flex flex-col xl:flex-row">
     <div className="xl:flex-shrink-0 relative">
       <figure>
@@ -125,17 +121,13 @@ const MaikCard = (): JSX.Element => (
 
     <div className="xl:flex-grow px-6 md:px-8 xl:py-8 flex flex-col xl:gap-5">
       <div className="py-6 md:py-8 xl:py-0 flex flex-row gap-3 items-center dark:bg-slate-700 sticky xl:static top-0 xl:top-auto">
-        <HandWaveIcon className="w-8 h-8" fill="rgb(203 213 225 / var(--tw-text-opacity))" /* text-slate-300 */ />
-
-        <h1 className="text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
-          Hi, I&apos;m Maik
-        </h1>
+        <H1 titleIcon={HandWaveIcon} title="Hi, I'm Maik"/>
       </div>
 
       <div className="mb-6 md:mb-8 xl:mb-0 flex flex-col gap-5">
         <div>
           Born in 1978, I&apos;ve started developing software in 1994. In 2003, I started working
-          for <a href="https://subshell.com" rel="noopener" className="dark:text-bzyellow">subshell GmbH</a> in
+          for <a href="https://subshell.com" rel="noopener noreferrer" className="dark:text-bzyellow">subshell GmbH</a> in
           Hamburg, Germany, where I am working on our flagship product, Sophora CMS, as well as various other
           bigger and smaller projects. I am still working for subshell to this day.
         </div>
@@ -159,39 +151,51 @@ const MaikCard = (): JSX.Element => (
   </Card>
 )
 
-const CardsListSectionContents = ({ sectionBgColorClassName, cardBgColorClassName, icon, title, projects }: {
+const QuoteSectionContents = () => (
+  <blockquote className="mx-5 sm:mx-8 flex flex-col gap-4 lg:gap-3 items-center">
+    <div className="flex flex-col gap-2 lg:gap-1 items-center">
+      <p className="text-center text-xl italic">
+        Any fool can write code <br className="md:hidden"/>
+        that a computer can understand.
+      </p>
+
+      <p className="text-center text-xl italic">
+        Good programmers write code <br className="md:hidden"/>
+        that <strong className="bold">humans</strong> can understand.
+      </p>
+    </div>
+
+    <p className="dark:text-slate-400">
+      &mdash; Martin Fowler
+    </p>
+  </blockquote>
+)
+
+const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardBgColorClassName, titleIcon, title, projects }: {
     sectionBgColorClassName: string
     cardBgColorClassName?: string
-    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
+    titleIcon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
     title: string
     projects: Projects.Project[]
-  }): JSX.Element => {
+  }) => (
 
-  const Icon = icon
+  <div className="flex flex-col gap-8">
+    <div className={classNames('py-5 flex flex-row justify-center sticky top-0 z-10', sectionBgColorClassName)}>
+      <H2 titleIcon={titleIcon} title={title}/>
+    </div>
 
-  return (
-    <div className="flex flex-col gap-8">
-      <div className={classNames('py-5 flex flex-row gap-3 items-center justify-center sticky top-0 z-10', sectionBgColorClassName)}>
-        <Icon className="w-8 h-8" fill="rgb(203 213 225 / var(--tw-text-opacity))" /* text-slate-300 */ />
-
-        <h1 className="text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
-          {title}
-        </h1>
-      </div>
-
-      <div className="mx-5 sm:mx-8">
-        <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
-          <CardsList cardBgColorClassName={cardBgColorClassName} projects={projects}/>
-        </div>
+    <div className="mx-5 sm:mx-8">
+      <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
+        <ProjectCardsList cardBgColorClassName={cardBgColorClassName} projects={projects}/>
       </div>
     </div>
-  )
-}
+  </div>
+)
 
-const CardsList = ({ cardBgColorClassName, projects }: {
+const ProjectCardsList = ({ cardBgColorClassName, projects }: {
     cardBgColorClassName?: string
     projects: Projects.Project[]
-  }): JSX.Element => (
+  }) => (
 
   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
     {
@@ -203,7 +207,7 @@ const CardsList = ({ cardBgColorClassName, projects }: {
 const ProjectCard = ({ colorClassName, project }: {
     colorClassName?: string
     project: Projects.Project
-  }): JSX.Element => (
+  }) => (
 
   // card widths:
   // 2xl - 395px -> 400px
@@ -267,40 +271,31 @@ const ProjectCard = ({ colorClassName, project }: {
         </div>
       </div>
 
-      {
-        (project.technologies || project.startYear) &&
-        <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1">
+        <div className="text-sm">
+          <div className="inline text-bzyellow">
+            Technologies:
+          </div>{' '}
+
+          {project.technologies.join(', ')}
+        </div>
+
+        <div className="text-sm">
+          <div className="inline text-bzyellow">
+            Active:
+          </div>{' '}
+
           {
-            project.technologies &&
-            <div className="text-sm">
-              <div className="inline text-bzyellow">
-                Technologies:
-              </div>{' '}
-
-              {project.technologies.join(', ')}
-            </div>
-          }
-
-          {
-            project.startYear &&
-            <div className="text-sm">
-              <div className="inline text-bzyellow">
-                Active:
-              </div>{' '}
-
-              {
-                !!project.endYear ? (
-                  project.endYear > project.startYear ? <>
-                    {project.startYear}&ndash;{project.endYear}
-                  </> :
-                  project.startYear
-                ) :
-                'Since ' + project.startYear
-              }
-            </div>
+            !!project.endYear ? (
+              project.endYear > project.startYear ? <>
+                {project.startYear}&ndash;{project.endYear}
+              </> :
+              project.startYear
+            ) :
+            'Since ' + project.startYear
           }
         </div>
-      }
+      </div>
     </div>
   </Card>
 )
@@ -310,13 +305,13 @@ const Card = ({ className, colorClassName = 'dark:bg-slate-700 dark:shadow-slate
     colorClassName?: string
     url?: string
     children: ReactNode
-  }): JSX.Element => {
+  }) => {
 
   const cssClass = classNames('shadow-xl rounded-xl', className, colorClassName)
 
-  if (url) {
+  if (!!url) {
     return (
-      <a href={url} rel="noopener" className={cssClass}>
+      <a href={url} rel="noopener noreferrer" className={cssClass}>
         {children}
       </a>
     )
@@ -326,5 +321,41 @@ const Card = ({ className, colorClassName = 'dark:bg-slate-700 dark:shadow-slate
     <div className={cssClass}>
       {children}
     </div>
+  )
+}
+
+const H1 = ({ titleIcon, title }: {
+    titleIcon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
+    title: string
+  }) => {
+
+  const TitleIcon = titleIcon
+
+  return (
+    <h1 className="flex flex-row items-center gap-3">
+      <TitleIcon className="inline-block w-8 h-8 fill-slate-300"/>
+
+      <div className="inline-block text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
+        {title}
+      </div>
+    </h1>
+  )
+}
+
+const H2 = ({ titleIcon, title }: {
+    titleIcon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
+    title: string
+  }) => {
+
+  const TitleIcon = titleIcon
+
+  return (
+    <h2 className="flex flex-row items-center gap-3">
+      <TitleIcon className="inline-block w-8 h-8 fill-slate-300" aria-hidden/>
+
+      <div className="inline-block text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
+        {title}
+      </div>
+    </h2>
   )
 }
