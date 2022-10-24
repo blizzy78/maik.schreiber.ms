@@ -43,7 +43,8 @@ const AppContents = () => {
           </section>
 
           <section className="dark:bg-slate-700 py-6">
-            <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-700" cardBgColorClassName="dark:bg-slate-600 dark:shadow-slate-800"
+            <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-700"
+              cardColorClassName="dark:border-slate-500 hover:dark:border-slate-400 transition-[border] duration-200 dark:bg-slate-600 dark:shadow-slate-800"
               titleIcon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
           </section>
 
@@ -171,35 +172,35 @@ const QuoteSectionContents = () => (
   </blockquote>
 )
 
-const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardBgColorClassName, titleIcon, title, projects }: {
+const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardColorClassName, titleIcon, title, projects }: {
     sectionBgColorClassName: string
-    cardBgColorClassName?: string
+    cardColorClassName?: string
     titleIcon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
     title: string
     projects: Projects.Project[]
   }) => (
 
   <div className="flex flex-col gap-8">
-    <div className={classNames('py-5 flex flex-row justify-center sticky top-0 z-10', sectionBgColorClassName)}>
+    <div className={classNames('py-5 flex flex-row justify-center sticky top-0 z-20', sectionBgColorClassName)}>
       <H2 titleIcon={titleIcon} title={title}/>
     </div>
 
     <div className="mx-5 sm:mx-8">
       <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
-        <ProjectCardsList cardBgColorClassName={cardBgColorClassName} projects={projects}/>
+        <ProjectCardsList cardColorClassName={cardColorClassName} projects={projects}/>
       </div>
     </div>
   </div>
 )
 
-const ProjectCardsList = ({ cardBgColorClassName, projects }: {
-    cardBgColorClassName?: string
+const ProjectCardsList = ({ cardColorClassName, projects }: {
+    cardColorClassName?: string
     projects: Projects.Project[]
   }) => (
 
   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
     {
-      projects.map(p => <ProjectCard colorClassName={cardBgColorClassName} key={p.title} project={p}/>)
+      projects.map(p => <ProjectCard colorClassName={cardColorClassName} key={p.title} project={p}/>)
     }
   </div>
 )
@@ -207,7 +208,7 @@ const ProjectCardsList = ({ cardBgColorClassName, projects }: {
 const ProjectCard = ({ colorClassName, project }: {
     colorClassName?: string
     project: Projects.Project
-  }) => (
+  }) => {
 
   // card widths:
   // 2xl - 395px -> 400px
@@ -217,101 +218,136 @@ const ProjectCard = ({ colorClassName, project }: {
   // sm  - 640px -> 800px
   // xs  - 100vw -> 800px
 
-  <Card url={project.url} className="flex flex-col" colorClassName={colorClassName}>
-    <div className={classNames('flex-shrink-0', !project.images && 'hidden md:block', project.images && 'relative')}>
-      <figure>
-        <picture>
-          {
-            project.images && <>
-              <source type="image/png" srcSet={project.images.lg.default + ' 800w'}
-                media={
-                  // lg
-                  '((min-width: 1024px) and (max-width: 1279px)) or ' +
-                  // sm
-                  '((min-width: 640px) and (max-width: 767px)) or ' +
-                  // xs
-                  '(max-width: 639px)'
-                }/>
+  const onMouseMove = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { currentTarget } = e
 
-              <source type="image/png" srcSet={project.images.md.default + ' 400w'}
-                media={
-                  // 2xl
-                  '(min-width: 1536px) or ' +
-                  // xl
-                  '((min-width: 1280px) and (max-width: 1535px)) or ' +
-                  // md
-                  '((min-width: 768px) and (max-width: 1023px))'
-                }/>
+    const rect = currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
 
-              <img src={project.images.lg.default} className="w-full rounded-t-xl" alt={project.title}/>
-            </>
-          }
+    currentTarget.style.setProperty('--x', `${x.toFixed(0)}px`)
+    currentTarget.style.setProperty('--y', `${y.toFixed(0)}px`)
+  }
 
-          {
-            !project.images &&
-            <img src={EmptyImage.default} className="w-full rounded-t-xl" alt=""/>
-          }
-        </picture>
-      </figure>
+  const onMouseEnter = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { currentTarget } = e
 
-      {
-        project.images &&
-        <div className="absolute w-full h-1/8 bottom-0 dark:bg-gradient-b-slate-800"></div>
-      }
-    </div>
+    currentTarget.style.setProperty('--opacity', '1')
+  }
 
-    <div className="flex-grow p-6 flex flex-col gap-6">
-      <div className="flex-grow flex flex-col gap-4">
-        <h2 className="text-lg font-headline font-semibold">
-          {project.title}
-        </h2>
+  const onMouseLeave = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { currentTarget } = e
 
-        <div>
-          {project.description}
-        </div>
+    currentTarget.style.setProperty('--opacity', '0')
+  }
+
+  return (
+    <Card url={project.url}
+      className="relative flex flex-col
+        before:absolute before:w-full before:h-full before:left-0 before:top-0 before:opacity-[var(--opacity)]
+        before:rounded-[inherit] before:bg-[radial-gradient(600px_circle_at_var(--x)_var(--y),_#ffffff18,_transparent_40%)]
+        before:transition-opacity before:duration-200
+        before:content-[''] before:z-10"
+      colorClassName={colorClassName} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+
+      <div className={classNames('flex-shrink-0', !project.images && 'hidden md:block', project.images && 'relative')}>
+        <figure>
+          <picture>
+            {
+              project.images && <>
+                <source type="image/png" srcSet={project.images.lg.default + ' 800w'}
+                  media={
+                    // lg
+                    '((min-width: 1024px) and (max-width: 1279px)) or ' +
+                    // sm
+                    '((min-width: 640px) and (max-width: 767px)) or ' +
+                    // xs
+                    '(max-width: 639px)'
+                  }/>
+
+                <source type="image/png" srcSet={project.images.md.default + ' 400w'}
+                  media={
+                    // 2xl
+                    '(min-width: 1536px) or ' +
+                    // xl
+                    '((min-width: 1280px) and (max-width: 1535px)) or ' +
+                    // md
+                    '((min-width: 768px) and (max-width: 1023px))'
+                  }/>
+
+                <img src={project.images.lg.default} className="w-full rounded-t-xl" alt={project.title}/>
+              </>
+            }
+
+            {
+              !project.images &&
+              <img src={EmptyImage.default} className="w-full rounded-t-xl" alt=""/>
+            }
+          </picture>
+        </figure>
+
+        {
+          project.images &&
+          <div className="absolute w-full h-1/8 bottom-0 dark:bg-gradient-b-slate-800"></div>
+        }
       </div>
 
-      <div className="flex flex-col gap-1">
-        <div className="text-sm">
-          <div className="inline text-bzyellow">
-            Technologies:
-          </div>{' '}
+      <div className="flex-grow p-6 flex flex-col gap-6">
+        <div className="flex-grow flex flex-col gap-4">
+          <h2 className="text-lg font-headline font-semibold">
+            {project.title}
+          </h2>
 
-          {project.technologies.join(', ')}
+          <div>
+            {project.description}
+          </div>
         </div>
 
-        <div className="text-sm">
-          <div className="inline text-bzyellow">
-            Active:
-          </div>{' '}
+        <div className="flex flex-col gap-1">
+          <div className="text-sm">
+            <div className="inline text-bzyellow">
+              Technologies:
+            </div>{' '}
 
-          {
-            !!project.endYear ? (
-              project.endYear > project.startYear ? <>
-                {project.startYear}&ndash;{project.endYear}
-              </> :
-              project.startYear
-            ) :
-            'Since ' + project.startYear
-          }
+            {project.technologies.join(', ')}
+          </div>
+
+          <div className="text-sm">
+            <div className="inline text-bzyellow">
+              Active:
+            </div>{' '}
+
+            {
+              !!project.endYear ? (
+                project.endYear > project.startYear ? <>
+                  {project.startYear}&ndash;{project.endYear}
+                </> :
+                project.startYear
+              ) :
+              'Since ' + project.startYear
+            }
+          </div>
         </div>
       </div>
-    </div>
-  </Card>
-)
+    </Card>
+  )
+}
 
-const Card = ({ className, colorClassName = 'dark:bg-slate-700 dark:shadow-slate-900', url, children }: {
+const Card = ({ className, colorClassName = 'dark:border-slate-600 hover:dark:border-slate-500 transition-[border] duration-200 dark:bg-slate-700 dark:shadow-slate-900', url, onMouseMove, onMouseEnter, onMouseLeave, children }: {
     className?: string
     colorClassName?: string
     url?: string
+    onMouseMove?: React.MouseEventHandler<HTMLElement>
+    onMouseEnter?: React.MouseEventHandler<HTMLElement>
+    onMouseLeave?: React.MouseEventHandler<HTMLElement>
     children: ReactNode
   }) => {
 
-  const cssClass = classNames('shadow-xl rounded-xl', className, colorClassName)
+  const cssClass = classNames('border rounded-xl shadow-xl', className, colorClassName)
 
   if (!!url) {
     return (
-      <a href={url} rel="noopener noreferrer" className={cssClass}>
+      <a href={url} rel="noopener noreferrer" className={cssClass} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         {children}
       </a>
     )
