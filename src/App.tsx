@@ -8,7 +8,7 @@ import { ReactComponent as HandWaveIcon } from './icons/hand-wave-outline.svg'
 import { ReactComponent as WeatherNightIcon } from './icons/weather-night.svg'
 import { ReactComponent as WeatherSunnyIcon } from './icons/weather-sunny.svg'
 import * as MaikAVIFImage from './maik.avif'
-import * as MaikPNGImage from './maik.jpg'
+import * as MaikJPEGImage from './maik.jpg'
 import * as MaikWebPImage from './maik.webp'
 import * as EmptyImage from './projects/img/empty.png'
 import * as Projects from './projects/projects'
@@ -117,9 +117,9 @@ const MaikCard = () => (
         <picture>
           <source type="image/avif" srcSet={MaikAVIFImage.default}/>
           <source type="image/webp" srcSet={MaikWebPImage.default}/>
-          <source type="image/png" srcSet={MaikPNGImage.default}/>
+          <source type="image/jpeg" srcSet={MaikJPEGImage.default}/>
 
-          <img src={MaikPNGImage.default} className="w-full rounded-t-xl xl:rounded-l-xl" alt="Maik"/>
+          <img src={MaikJPEGImage.default} className="w-full rounded-t-xl xl:rounded-l-xl" alt="Maik"/>
         </picture>
       </figure>
 
