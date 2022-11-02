@@ -7,8 +7,10 @@ import { BreakpointReadout } from './BreakpointReadout'
 import { ReactComponent as HandWaveIcon } from './icons/hand-wave-outline.svg'
 import { ReactComponent as WeatherNightIcon } from './icons/weather-night.svg'
 import { ReactComponent as WeatherSunnyIcon } from './icons/weather-sunny.svg'
-import * as MaikImage from './maik.jpg'
-import * as EmptyImage from './projects/empty.png'
+import * as MaikAVIFImage from './maik.avif'
+import * as MaikPNGImage from './maik.jpg'
+import * as MaikWebPImage from './maik.webp'
+import * as EmptyImage from './projects/img/empty.png'
 import * as Projects from './projects/projects'
 import * as SocialImage from './social.png'
 
@@ -113,7 +115,11 @@ const MaikCard = () => (
     <div className="xl:flex-shrink-0 relative">
       <figure>
         <picture>
-          <img src={MaikImage.default} className="w-full rounded-t-xl xl:rounded-l-xl" alt="Maik"/>
+          <source type="image/avif" srcSet={MaikAVIFImage.default}/>
+          <source type="image/webp" srcSet={MaikWebPImage.default}/>
+          <source type="image/png" srcSet={MaikPNGImage.default}/>
+
+          <img src={MaikPNGImage.default} className="w-full rounded-t-xl xl:rounded-l-xl" alt="Maik"/>
         </picture>
       </figure>
 
@@ -211,12 +217,12 @@ const ProjectCard = ({ colorClassName, project }: {
   }) => {
 
   // card widths:
-  // 2xl - 395px -> 400px
-  // xl  - 395px -> 400px
-  // lg  - 488px -> 800px
-  // md  - 360px -> 400px
-  // sm  - 640px -> 800px
-  // xs  - 100vw -> 800px
+  // 2xl - 395px -> 400px image
+  // xl  - 395px -> 400px image
+  // lg  - 488px -> 800px image
+  // md  - 360px -> 400px image
+  // sm  - 640px -> 800px image
+  // xs  - 100vw -> 800px image
 
   const onMouseMove = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { currentTarget } = e
@@ -241,6 +247,22 @@ const ProjectCard = ({ colorClassName, project }: {
     currentTarget.style.setProperty('--opacity', '0')
   }
 
+  const image800MediaSelector =
+    // lg
+    '((min-width: 1024px) and (max-width: 1279px)) or ' +
+    // sm
+    '((min-width: 640px) and (max-width: 767px)) or ' +
+    // xs
+    '(max-width: 639px)'
+
+  const image400MediaSelector =
+    // 2xl
+    '(min-width: 1536px) or ' +
+    // xl
+    '((min-width: 1280px) and (max-width: 1535px)) or ' +
+    // md
+    '((min-width: 768px) and (max-width: 1023px))'
+
   return (
     <Card url={project.url}
       className="relative flex flex-col
@@ -255,27 +277,14 @@ const ProjectCard = ({ colorClassName, project }: {
           <picture>
             {
               project.images && <>
-                <source type="image/png" srcSet={project.images.lg.default + ' 800w'}
-                  media={
-                    // lg
-                    '((min-width: 1024px) and (max-width: 1279px)) or ' +
-                    // sm
-                    '((min-width: 640px) and (max-width: 767px)) or ' +
-                    // xs
-                    '(max-width: 639px)'
-                  }/>
+                <source type="image/avif" srcSet={project.images.avif.lg.default + ' 800w'} media={image800MediaSelector}/>
+                <source type="image/avif" srcSet={project.images.avif.md.default + ' 400w'} media={image400MediaSelector}/>
+                <source type="image/webp" srcSet={project.images.webp.lg.default + ' 800w'} media={image800MediaSelector}/>
+                <source type="image/webp" srcSet={project.images.webp.md.default + ' 400w'} media={image400MediaSelector}/>
+                <source type="image/png" srcSet={project.images.png.lg.default + ' 800w'} media={image800MediaSelector}/>
+                <source type="image/png" srcSet={project.images.png.md.default + ' 400w'} media={image400MediaSelector}/>
 
-                <source type="image/png" srcSet={project.images.md.default + ' 400w'}
-                  media={
-                    // 2xl
-                    '(min-width: 1536px) or ' +
-                    // xl
-                    '((min-width: 1280px) and (max-width: 1535px)) or ' +
-                    // md
-                    '((min-width: 768px) and (max-width: 1023px))'
-                  }/>
-
-                <img src={project.images.lg.default} className="w-full rounded-t-xl" alt={project.title}/>
+                <img src={project.images.png.lg.default} className="w-full rounded-t-xl" alt={project.title}/>
               </>
             }
 
