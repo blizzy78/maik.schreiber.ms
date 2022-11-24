@@ -141,7 +141,7 @@ const MaikCard = () => (
 
         <p>
           I have worked with many different technologies and programming languages over the years,
-          most notably Java, Go, React, C#, and C. As projects come and go, I use frontend/backend frameworks,
+          most notably Java, Go, React, C#, and C. As projects come and go, I use frontend/<wbr/>backend frameworks,
           databases, and other technologies as appropriate. I&apos;m always trying to stay on top of what&apos;s fresh.
         </p>
 

@@ -110,7 +110,7 @@ export const projects: Project[] = [
       }
     },
     title: 'consistent',
-    description: 'A Go linter/Analyzer that checks that common language constructs are used consistently.',
+    description: 'A Go linter/Analyzer checking that common language constructs are used consistently.',
     technologies: ['Go'],
     startYear: 2022
   },
