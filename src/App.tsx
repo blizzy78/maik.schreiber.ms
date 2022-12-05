@@ -158,7 +158,7 @@ const MaikCard = () => (
           I&apos;ll be happy to get in contact with you:
         </div>
 
-        <div className="flex flex-row gap-6">
+        <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
           <a href="mailto:maik@schreiber.ms" className="flex flex-row gap-2 items-center">
             <EMailIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
             <div className="inline-block dark:text-bzyellow">
