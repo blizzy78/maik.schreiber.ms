@@ -4,7 +4,10 @@ import classNames from 'classnames'
 import { ReactNode } from 'react'
 import * as Helmet from 'react-helmet-async'
 import { BreakpointReadout } from './BreakpointReadout'
+import { ReactComponent as EMailIcon } from './icons/email-outline.svg'
+import { ReactComponent as GitHubIcon } from './icons/github.svg'
 import { ReactComponent as HandWaveIcon } from './icons/hand-wave-outline.svg'
+import { ReactComponent as TwitterIcon } from './icons/twitter.svg'
 import { ReactComponent as WeatherNightIcon } from './icons/weather-night.svg'
 import { ReactComponent as WeatherSunnyIcon } from './icons/weather-sunny.svg'
 import * as MaikAVIFImage from './maik.avif'
@@ -46,7 +49,8 @@ const AppContents = () => {
 
           <section className="dark:bg-slate-700 py-6">
             <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-700"
-              cardColorClassName="dark:border-slate-500 hover:dark:border-slate-400 transition-[border] duration-200 dark:bg-slate-600 dark:shadow-slate-800"
+              cardColorClassName="dark:border-slate-500 dark:bg-slate-600 dark:shadow-slate-800"
+              cardHoverColorClassName="hover:dark:border-slate-400 transition-[border] duration-200"
               titleIcon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
           </section>
 
@@ -111,22 +115,22 @@ const MaikSectionContents = () => (
 )
 
 const MaikCard = () => (
-  <Card className="w-full xl:w-auto md:w-3/4 xl:max-w-screen-lg mx-auto flex flex-col xl:flex-row">
-    <div className="xl:flex-shrink-0 relative">
-      <figure>
-        <picture>
+  <Card className="w-full xl:w-auto md:w-3/4 xl:max-w-screen-lg mx-auto flex flex-col xl:grid xl:grid-cols-2">
+    <div className="relative">
+      <figure className="w-full xl:h-full">
+        <picture className="w-full">
           <source type="image/avif" srcSet={MaikAVIFImage.default}/>
           <source type="image/webp" srcSet={MaikWebPImage.default}/>
           <source type="image/jpeg" srcSet={MaikJPEGImage.default}/>
 
-          <img src={MaikJPEGImage.default} className="w-full rounded-t-xl xl:rounded-l-xl" alt="Maik"/>
+          <img src={MaikJPEGImage.default} className="w-full xl:h-full xl:object-cover rounded-t-xl xl:rounded-l-xl" alt="Maik"/>
         </picture>
       </figure>
 
       <div className="absolute w-full h-1/8 bottom-0 dark:bg-gradient-b-slate-800 xl:w-1/8 xl:h-full xl:top-0 xl:right-0 dark:xl:bg-gradient-r-slate-800"></div>
     </div>
 
-    <div className="xl:flex-grow px-6 md:px-8 xl:py-8 flex flex-col xl:gap-5">
+    <div className="px-6 md:px-8 xl:py-8 flex flex-col xl:gap-5">
       <div className="py-6 md:py-8 xl:py-0 flex flex-row gap-3 items-center dark:bg-slate-700 sticky xl:static top-0 xl:top-auto">
         <H1 titleIcon={HandWaveIcon} title="Hi, I'm Maik"/>
       </div>
@@ -139,20 +143,43 @@ const MaikCard = () => (
           bigger and smaller projects. I am still working for subshell to this day.
         </div>
 
-        <p>
+        <div>
           I have worked with many different technologies and programming languages over the years,
           most notably Java, Go, React, C#, and C. As projects come and go, I use frontend/<wbr/>backend frameworks,
           databases, and other technologies as appropriate. I&apos;m always trying to stay on top of what&apos;s fresh.
-        </p>
+        </div>
 
-        <p>
+        <div>
           In my spare time I work on a variety of different projects which you can see below. Most of them
           are open source.
-        </p>
+        </div>
 
-        <p>
-          I&apos;ll be happy to get in contact with you: <a href="mailto:maik@schreiber.ms" className="dark:text-bzyellow">maik@schreiber.ms</a>
-        </p>
+        <div>
+          I&apos;ll be happy to get in contact with you:
+        </div>
+
+        <div className="flex flex-row gap-6">
+          <a href="mailto:maik@schreiber.ms" className="flex flex-row gap-2 items-center">
+            <EMailIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
+            <div className="inline-block dark:text-bzyellow">
+              maik@schreiber.ms
+            </div>
+          </a>
+
+          <a href="https://github.com/blizzy78" rel="noopener noreferer" className="flex flex-row gap-2 items-center">
+            <GitHubIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
+            <div className="inline-block dark:text-bzyellow">
+              @blizzy78
+            </div>
+          </a>
+
+          <a href="https://twitter.com/blizzy78" rel="noopener noreferer" className="flex flex-row gap-2 items-center">
+            <TwitterIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
+            <div className="inline-block dark:text-bzyellow">
+              @blizzy78
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </Card>
@@ -178,9 +205,10 @@ const QuoteSectionContents = () => (
   </blockquote>
 )
 
-const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardColorClassName, titleIcon, title, projects }: {
+const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardColorClassName, cardHoverColorClassName, titleIcon, title, projects }: {
     sectionBgColorClassName: string
     cardColorClassName?: string
+    cardHoverColorClassName?: string
     titleIcon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string | undefined }>
     title: string
     projects: Projects.Project[]
@@ -193,26 +221,28 @@ const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardColorCla
 
     <div className="mx-5 sm:mx-8">
       <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
-        <ProjectCardsList cardColorClassName={cardColorClassName} projects={projects}/>
+        <ProjectCardsList cardColorClassName={cardColorClassName} cardHoverColorClassName={cardHoverColorClassName} projects={projects}/>
       </div>
     </div>
   </div>
 )
 
-const ProjectCardsList = ({ cardColorClassName, projects }: {
+const ProjectCardsList = ({ cardColorClassName, cardHoverColorClassName, projects }: {
     cardColorClassName?: string
+    cardHoverColorClassName?: string
     projects: Projects.Project[]
   }) => (
 
   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
     {
-      projects.map(p => <ProjectCard colorClassName={cardColorClassName} key={p.title} project={p}/>)
+      projects.map(p => <ProjectCard colorClassName={cardColorClassName} hoverColorClassName={cardHoverColorClassName} key={p.title} project={p}/>)
     }
   </div>
 )
 
-const ProjectCard = ({ colorClassName, project }: {
+const ProjectCard = ({ colorClassName, hoverColorClassName, project }: {
     colorClassName?: string
+    hoverColorClassName?: string
     project: Projects.Project
   }) => {
 
@@ -270,7 +300,8 @@ const ProjectCard = ({ colorClassName, project }: {
         before:rounded-[inherit] before:bg-[radial-gradient(600px_circle_at_var(--x)_var(--y),_#ffffff18,_transparent_40%)]
         before:transition-opacity before:duration-200
         before:content-[''] before:z-10"
-      colorClassName={colorClassName} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      colorClassName={colorClassName} hoverColorClassName={hoverColorClassName}
+      onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 
       <div className={classNames('flex-shrink-0', !project.images && 'hidden md:block', project.images && 'relative')}>
         <figure>
@@ -342,9 +373,19 @@ const ProjectCard = ({ colorClassName, project }: {
   )
 }
 
-const Card = ({ className, colorClassName = 'dark:border-slate-600 hover:dark:border-slate-500 transition-[border] duration-200 dark:bg-slate-700 dark:shadow-slate-900', url, onMouseMove, onMouseEnter, onMouseLeave, children }: {
+const Card = ({
+    className,
+    colorClassName = 'dark:border-slate-600 dark:bg-slate-700 dark:shadow-slate-900',
+    hoverColorClassName = 'hover:dark:border-slate-500 transition-[border] duration-200',
+    url,
+    onMouseMove,
+    onMouseEnter,
+    onMouseLeave,
+    children
+  }: {
     className?: string
     colorClassName?: string
+    hoverColorClassName?: string
     url?: string
     onMouseMove?: React.MouseEventHandler<HTMLElement>
     onMouseEnter?: React.MouseEventHandler<HTMLElement>
@@ -352,9 +393,14 @@ const Card = ({ className, colorClassName = 'dark:border-slate-600 hover:dark:bo
     children: ReactNode
   }) => {
 
-  const cssClass = classNames('border rounded-xl shadow-xl', className, colorClassName)
+  const cssClass = classNames(
+    'border rounded-xl shadow-xl',
+    className,
+    colorClassName,
+    (!!onMouseMove && !!onMouseEnter && !!onMouseLeave) && hoverColorClassName
+  )
 
-  if (!!url) {
+  if (!!url && !!onMouseMove && !!onMouseEnter && !!onMouseLeave) {
     return (
       <a href={url} rel="noopener noreferrer" className={cssClass} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         {children}
