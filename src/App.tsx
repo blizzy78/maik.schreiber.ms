@@ -136,27 +136,27 @@ const MaikCard = () => (
       </div>
 
       <div className="mb-6 md:mb-8 xl:mb-0 flex flex-col gap-5">
-        <div>
-          Born in 1978, I&apos;ve started developing software in 1994. In 2003, I started working
+        <p className="my-0">
+          Born in 1978, I began developing software in 1994. I started working
           for <a href="https://subshell.com" rel="noopener noreferrer" className="dark:text-bzyellow">subshell GmbH</a> in
-          Hamburg, Germany, where I am working on our flagship product, Sophora CMS, as well as various other
-          bigger and smaller projects. I am still working for subshell to this day.
-        </div>
+          Hamburg, Germany, in 2003, where I am currently working on our flagship product, Sophora CMS, as well as
+          various other projects. I am still working for subshell to this day.
+        </p>
 
-        <div>
-          I have worked with many different technologies and programming languages over the years,
-          most notably Java, Go, React, C#, and C. As projects come and go, I use frontend/<wbr/>backend frameworks,
-          databases, and other technologies as appropriate. I&apos;m always trying to stay on top of what&apos;s fresh.
-        </div>
+        <p className="my-0">
+          I have experience with many different technologies and programming languages, including Java, Go, React, C#,
+          and C. As projects come and go, I use frontend/<wbr/>backend frameworks, databases, and other technologies
+          as needed. I am always trying to stay up-to-date with the latest technologies.
+        </p>
 
-        <div>
-          In my spare time I work on a variety of different projects which you can see below. Most of them
-          are open source.
-        </div>
+        <p className="my-0">
+          In my spare time, I work on a variety of different projects, most of which are open source. You can see some of
+          these projects below.
+        </p>
 
-        <div>
-          I&apos;ll be happy to get in contact with you:
-        </div>
+        <p className="my-0">
+          I am always happy to connect with others:
+        </p>
 
         <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
           <a href="mailto:maik@schreiber.ms" className="flex flex-row gap-2 items-center">
