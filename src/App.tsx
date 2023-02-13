@@ -1,5 +1,5 @@
-import '@fontsource/arvo'
-import '@fontsource/lato'
+import '@fontsource/montserrat'
+import '@fontsource/poppins'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
 import * as Helmet from 'react-helmet-async'
@@ -50,12 +50,13 @@ const AppContents = () => {
           <section className="dark:bg-slate-700 py-6">
             <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-700"
               cardColorClassName="dark:border-slate-500 dark:bg-slate-600 dark:shadow-slate-800"
-              cardHoverColorClassName="hover:dark:border-slate-400 transition-[border] duration-200"
+              cardHoverColorClassName="hover:z-10 hover:dark:border-slate-400 hover:shadow-lg hover:scale-105 transition-[border,_box-shadow,_transform] duration-75 hover:duration-100"
               titleIcon={WeatherSunnyIcon} title="Ongoing Projects" projects={activeProjects}/>
           </section>
 
           <section>
             <ProjectCardsListSectionContents sectionBgColorClassName="dark:bg-slate-800"
+              cardHoverColorClassName="hover:z-10 hover:dark:border-slate-500 hover:shadow-lg hover:scale-105 transition-[border,_box-shadow,_transform] duration-75 hover:duration-100"
               titleIcon={WeatherNightIcon} title="Past Projects" projects={inactiveProjects}/>
           </section>
         </div>
@@ -137,25 +138,25 @@ const MaikCard = () => (
 
       <div className="mb-6 md:mb-8 xl:mb-0 flex flex-col gap-5">
         <p className="my-0">
-          Born in 1978, I began developing software in 1994. I started working
+          Born in 1978, I&nbsp;began developing software in 1994. I&nbsp;started working
           for <a href="https://subshell.com" rel="noopener noreferrer" className="dark:text-bzyellow">subshell GmbH</a> in
-          Hamburg, Germany, in 2003, where I am currently working on our flagship product, Sophora CMS, as well as
-          various other projects. I am still working for subshell to this day.
+          Hamburg, Germany, in 2003, where I&nbsp;am currently working on our flagship product, Sophora CMS, as well as
+          various other projects. I&nbsp;am still working for subshell to this day.
         </p>
 
         <p className="my-0">
-          I have experience with many different technologies and programming languages, including Java, Go, React, C#,
-          and C. As projects come and go, I use frontend/<wbr/>backend frameworks, databases, and other technologies
-          as needed. I am always trying to stay up-to-date with the latest technologies.
+          I&nbsp;have experience with many different technologies and programming languages, including Java, Go, React, C#,
+          and C. As projects come and go, I&nbsp;use frontend/<wbr/>backend frameworks, databases, and other technologies
+          as needed. I&nbsp;am always trying to stay up-to-date with the latest technologies.
         </p>
 
         <p className="my-0">
-          In my spare time, I work on a variety of different projects, most of which are open source. You can see some of
+          In my spare time, I&nbsp;work on a variety of different projects, most of which are open source. You can see some of
           these projects below.
         </p>
 
         <p className="my-0">
-          I am always happy to connect with others:
+          I&nbsp;am always happy to connect with others:
         </p>
 
         <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
@@ -394,7 +395,7 @@ const Card = ({
   }) => {
 
   const cssClass = classNames(
-    'border rounded-xl shadow-xl',
+    'border rounded-xl shadow',
     className,
     colorClassName,
     (!!onMouseMove && !!onMouseEnter && !!onMouseLeave) && hoverColorClassName
@@ -423,13 +424,15 @@ const H1 = ({ titleIcon, title }: {
   const TitleIcon = titleIcon
 
   return (
-    <h1 className="flex flex-row items-center gap-3">
-      <TitleIcon className="inline-block w-8 h-8 fill-slate-300"/>
+    <div className="flex flex-col gap-3">
+      <h1 className="flex flex-row items-center gap-3">
+        <TitleIcon className="inline-block w-8 h-8 fill-slate-300"/>
 
-      <div className="inline-block text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
-        {title}
-      </div>
-    </h1>
+        <div className="inline-block text-2xl font-headline font-semibold after:content-['.'] after:ml-[0.125rem] dark:after:text-bzyellow">
+          {title}
+        </div>
+      </h1>
+    </div>
   )
 }
 
