@@ -52,6 +52,12 @@ import * as Luminoso400WebPImage from './img/luminoso-400.webp'
 import * as LuminosoAVIFImage from './img/luminoso.avif'
 import * as LuminosoPNGImage from './img/luminoso.png'
 import * as LuminosoWebPImage from './img/luminoso.webp'
+import * as ReactOutline400AVIFImage from './img/react-outline-400.avif'
+import * as ReactOutline400PNGImage from './img/react-outline-400.png'
+import * as ReactOutline400WebPImage from './img/react-outline-400.webp'
+import * as ReactOutlineAVIFImage from './img/react-outline.avif'
+import * as ReactOutlinePNGImage from './img/react-outline.png'
+import * as ReactOutlineWebPImage from './img/react-outline.webp'
 import * as Smooth2DCamera400AVIFImage from './img/smooth-2d-camera-400.avif'
 import * as Smooth2DCamera400PNGImage from './img/smooth-2d-camera-400.png'
 import * as Smooth2DCamera400WebPImage from './img/smooth-2d-camera-400.webp'
@@ -93,6 +99,28 @@ export interface Images<T> {
 }
 
 export const projects: Project[] = [
+  {
+    url: 'https://github.com/blizzy78/react-outline',
+    images: {
+      png: {
+        lg: ReactOutlinePNGImage,
+        md: ReactOutline400PNGImage
+      },
+      webp: {
+        lg: ReactOutlineWebPImage,
+        md: ReactOutline400WebPImage
+      },
+      avif: {
+        lg: ReactOutlineAVIFImage,
+        md: ReactOutline400AVIFImage
+      }
+    },
+    title: 'react-outline',
+    description: 'A React component that shows a live document outline.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    startYear: 2023
+  },
+
   {
     url: 'https://github.com/blizzy78/consistent',
     images: {
