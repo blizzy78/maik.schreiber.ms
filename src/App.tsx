@@ -62,13 +62,13 @@ const AppContents = () => {
     </main>
 
     {
-      import.meta.env.DEV && <>
-        <BreakpointReadout className="fixed right-2 top-2 opacity-80 z-50"/>
-
-        {/* <div className="fixed top-5 right-5 z-50 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
+      import.meta.env.DEV && <div className="isolate">
+        {/* <div className="fixed top-5 right-5 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
           <Outline />
         </div> */}
-      </>
+
+        <BreakpointReadout className="fixed right-2 top-2 opacity-80"/>
+      </div>
     }
   </>
 }
@@ -224,13 +224,13 @@ const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardColorCla
     projects: Projects.Project[]
   }) => (
 
-  <div className="flex flex-col gap-8">
-    <div className={classNames('py-5 flex flex-row justify-center sticky top-0 z-20', sectionBgColorClassName)}>
+  <div className="flex flex-col gap-8 isolate">
+    <div className={classNames('py-5 flex flex-row justify-center sticky top-0 z-10', sectionBgColorClassName)}>
       <H2 titleIcon={titleIcon} title={title}/>
     </div>
 
     <div className="mx-5 sm:mx-8">
-      <div className="container 2xl:max-w-screen-xl mx-auto pb-8">
+      <div className="container 2xl:max-w-screen-xl mx-auto pb-8 isolate">
         <ProjectCardsList cardColorClassName={cardColorClassName} cardHoverColorClassName={cardHoverColorClassName} projects={projects}/>
       </div>
     </div>
