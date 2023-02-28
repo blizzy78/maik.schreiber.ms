@@ -39,9 +39,7 @@ const AppContents = () => {
     <main>
       <div className="mt-12 mb-24">
         <div className="flex flex-col gap-20">
-          <section>
-            <MaikSectionContents/>
-          </section>
+          <MaikSectionContents/>
 
           <section>
             <QuoteSectionContents/>
@@ -64,8 +62,13 @@ const AppContents = () => {
     </main>
 
     {
-      import.meta.env.DEV &&
-      <BreakpointReadout className="fixed right-2 top-2 opacity-80 z-50"/>
+      import.meta.env.DEV && <>
+        <BreakpointReadout className="fixed right-2 top-2 opacity-80 z-50"/>
+
+        {/* <div className="fixed top-5 right-5 z-50 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
+          <Outline />
+        </div> */}
+      </>
     }
   </>
 }
@@ -136,57 +139,63 @@ const MaikCard = () => (
         <H1 titleIcon={HandWaveIcon} title="Hi, I'm Maik"/>
       </div>
 
-      <div className="mb-6 md:mb-8 xl:mb-0 flex flex-col gap-5">
-        <p className="my-0">
-          Born in 1978, I&nbsp;began developing software in 1994. I&nbsp;started working
-          for <a href="https://subshell.com" rel="noopener noreferrer" className="dark:text-bzyellow">subshell GmbH</a> in
-          Hamburg, Germany, in 2003, where I&nbsp;am currently working on our flagship product, Sophora CMS, as well as
-          various other projects. I&nbsp;am still working for subshell to this day.
-        </p>
+      <section>
+        <h2 className="sr-only">About Me</h2>
 
-        <p className="my-0">
-          I&nbsp;have experience with many different technologies and programming languages, including Java, Go, React, C#,
-          and C. As projects come and go, I&nbsp;use frontend/<wbr/>backend frameworks, databases, and other technologies
-          as needed. I&nbsp;am always trying to stay up-to-date with the latest technologies.
-        </p>
+        <div className="mb-6 md:mb-8 xl:mb-0 flex flex-col gap-5">
+          <p className="my-0">
+            Born in 1978, I&nbsp;began developing software in 1994. I&nbsp;started working
+            for <a href="https://subshell.com" rel="noopener noreferrer" className="dark:text-bzyellow">subshell GmbH</a> in
+            Hamburg, Germany, in 2003, where I&nbsp;am currently working on our flagship product, Sophora CMS, as well as
+            various other projects. I&nbsp;am still working for subshell to this day.
+          </p>
 
-        <p className="my-0">
-          In my spare time, I&nbsp;work on a variety of different projects, most of which are open source. You can see some of
-          these projects below.
-        </p>
+          <p className="my-0">
+            I&nbsp;have experience with many different technologies and programming languages, including Java, Go, React, C#,
+            and C. As projects come and go, I&nbsp;use frontend/<wbr/>backend frameworks, databases, and other technologies
+            as needed. I&nbsp;am always trying to stay up-to-date with the latest technologies.
+          </p>
 
-        <p className="my-0">
-          I&nbsp;am always happy to connect with others:
-        </p>
+          <p className="my-0">
+            In my spare time, I&nbsp;work on a variety of different projects, most of which are open source. You can see some of
+            these projects below.
+          </p>
 
-        <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-          <a href="mailto:maik@schreiber.ms" className="flex flex-row gap-2 items-center">
-            <EMailIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
-            <div className="inline-block dark:text-bzyellow">
-              maik@schreiber.ms
-            </div>
-          </a>
+          <p className="my-0">
+            I&nbsp;am always happy to connect with others:
+          </p>
 
-          <a href="https://github.com/blizzy78" rel="noopener noreferer" className="flex flex-row gap-2 items-center">
-            <GitHubIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
-            <div className="inline-block dark:text-bzyellow">
-              @blizzy78
-            </div>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
+            <a href="mailto:maik@schreiber.ms" className="flex flex-row gap-2 items-center">
+              <EMailIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
+              <div className="inline-block dark:text-bzyellow">
+                maik@schreiber.ms
+              </div>
+            </a>
 
-          <a href="https://twitter.com/blizzy78" rel="noopener noreferer" className="flex flex-row gap-2 items-center">
-            <TwitterIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
-            <div className="inline-block dark:text-bzyellow">
-              @blizzy78
-            </div>
-          </a>
+            <a href="https://github.com/blizzy78" rel="noopener noreferer" className="flex flex-row gap-2 items-center">
+              <GitHubIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
+              <div className="inline-block dark:text-bzyellow">
+                @blizzy78
+              </div>
+            </a>
+
+            <a href="https://twitter.com/blizzy78" rel="noopener noreferer" className="flex flex-row gap-2 items-center">
+              <TwitterIcon className="w-5 h-5 dark:fill-bzyellow items-center"/>
+              <div className="inline-block dark:text-bzyellow">
+                @blizzy78
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   </Card>
 )
 
-const QuoteSectionContents = () => (
+const QuoteSectionContents = () => <>
+  <h2 className="sr-only">My Favorite Quote</h2>
+
   <blockquote className="mx-5 sm:mx-8 flex flex-col gap-4 lg:gap-3 items-center">
     <div className="flex flex-col gap-2 lg:gap-1 items-center">
       <p className="text-center text-xl italic">
@@ -204,7 +213,7 @@ const QuoteSectionContents = () => (
       &mdash; Martin Fowler
     </p>
   </blockquote>
-)
+</>
 
 const ProjectCardsListSectionContents = ({ sectionBgColorClassName, cardColorClassName, cardHoverColorClassName, titleIcon, title, projects }: {
     sectionBgColorClassName: string
@@ -236,7 +245,11 @@ const ProjectCardsList = ({ cardColorClassName, cardHoverColorClassName, project
 
   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
     {
-      projects.map(p => <ProjectCard colorClassName={cardColorClassName} hoverColorClassName={cardHoverColorClassName} key={p.title} project={p}/>)
+      projects.map(p => (
+        <article key={p.title} className="grid grid-cols-1">
+          <ProjectCard colorClassName={cardColorClassName} hoverColorClassName={cardHoverColorClassName} project={p}/>
+        </article>
+      ))
     }
   </div>
 )
@@ -335,9 +348,9 @@ const ProjectCard = ({ colorClassName, hoverColorClassName, project }: {
 
       <div className="flex-grow p-6 flex flex-col gap-6">
         <div className="flex-grow flex flex-col gap-4">
-          <h2 className="text-lg font-headline font-semibold">
+          <h3 className="text-lg font-headline font-semibold">
             {project.title}
-          </h2>
+          </h3>
 
           <div>
             {project.description}

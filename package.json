@@ -10,6 +10,7 @@
     "snap": "react-snap"
   },
   "dependencies": {
+    "@blizzy/react-outline": "^0.2.0",
     "@fontsource/montserrat": "^4.5.14",
     "@fontsource/poppins": "^4.5.10",
     "classnames": "^2.3.2",
