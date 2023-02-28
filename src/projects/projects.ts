@@ -104,21 +104,21 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: ReactOutlinePNGImage,
-        md: ReactOutline400PNGImage
+        md: ReactOutline400PNGImage,
       },
       webp: {
         lg: ReactOutlineWebPImage,
-        md: ReactOutline400WebPImage
+        md: ReactOutline400WebPImage,
       },
       avif: {
         lg: ReactOutlineAVIFImage,
-        md: ReactOutline400AVIFImage
-      }
+        md: ReactOutline400AVIFImage,
+      },
     },
     title: 'react-outline',
     description: 'A React component that shows a live document outline.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    startYear: 2023
+    startYear: 2023,
   },
 
   {
@@ -126,21 +126,21 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: ConsistentPNGImage,
-        md: Consistent400PNGImage
+        md: Consistent400PNGImage,
       },
       webp: {
         lg: ConsistentWebPImage,
-        md: Consistent400WebPImage
+        md: Consistent400WebPImage,
       },
       avif: {
         lg: ConsistentAVIFImage,
-        md: Consistent400AVIFImage
-      }
+        md: Consistent400AVIFImage,
+      },
     },
     title: 'consistent',
     description: 'A Go linter/Analyzer checking that common language constructs are used consistently.',
     technologies: ['Go'],
-    startYear: 2022
+    startYear: 2022,
   },
 
   {
@@ -148,21 +148,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: VarNameLenPNGImage,
-        md: VarNameLen400PNGImage
+        md: VarNameLen400PNGImage,
       },
       webp: {
         lg: VarNameLenWebPImage,
-        md: VarNameLen400WebPImage
+        md: VarNameLen400WebPImage,
       },
       avif: {
         lg: VarNameLenAVIFImage,
-        md: VarNameLen400AVIFImage
-      }
+        md: VarNameLen400AVIFImage,
+      },
     },
     title: 'varnamelen',
-    description: 'A Go linter/Analyzer checking that the length of a variable\'s name matches its usage scope. This linter is also part of the popular golangci-lint application.',
+    description:
+      "A Go linter/Analyzer checking that the length of a variable's name matches its usage scope. This linter is also part of the popular golangci-lint application.",
     technologies: ['Go'],
-    startYear: 2021
+    startYear: 2021,
   },
 
   {
@@ -170,21 +171,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: BookmarksPNGImage,
-        md: Bookmarks400PNGImage
+        md: Bookmarks400PNGImage,
       },
       webp: {
         lg: BookmarksWebPImage,
-        md: Bookmarks400WebPImage
+        md: Bookmarks400WebPImage,
       },
       avif: {
         lg: BookmarksAVIFImage,
-        md: Bookmarks400AVIFImage
-      }
+        md: Bookmarks400AVIFImage,
+      },
     },
     title: 'Bookmarks',
-    description: 'My personal bookmarks management application. It\'s rather simplistic, but fast, searchable, and has tags.',
+    description:
+      "My personal bookmarks management application. It's rather simplistic, but fast, searchable, and has tags.",
     technologies: ['Go', 'React', 'TypeScript', 'Algolia', 'Mantine', 'Tailwind CSS'],
-    startYear: 2021
+    startYear: 2021,
   },
 
   {
@@ -192,21 +194,21 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: DevContainerPNGImage,
-        md: DevContainer400PNGImage
+        md: DevContainer400PNGImage,
       },
       webp: {
         lg: DevContainerWebPImage,
-        md: DevContainer400WebPImage
+        md: DevContainer400WebPImage,
       },
       avif: {
         lg: DevContainerAVIFImage,
-        md: DevContainer400AVIFImage
-      }
+        md: DevContainer400AVIFImage,
+      },
     },
     title: 'Dev Container',
     description: 'An all-in-one dev container for Visual Studio Code. I use it for all my software development.',
     technologies: ['Docker', 'Go'],
-    startYear: 2021
+    startYear: 2021,
   },
 
   {
@@ -214,21 +216,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: ConditionalHTTPPNGImage,
-        md: ConditionalHTTP400PNGImage
+        md: ConditionalHTTP400PNGImage,
       },
       webp: {
         lg: ConditionalHTTPWebPImage,
-        md: ConditionalHTTP400WebPImage
+        md: ConditionalHTTP400WebPImage,
       },
       avif: {
         lg: ConditionalHTTPAVIFImage,
-        md: ConditionalHTTP400AVIFImage
-      }
+        md: ConditionalHTTP400AVIFImage,
+      },
     },
     title: 'Conditional HTTP Middleware',
-    description: 'Provides middleware for conditional HTTP requests supporting the ETag, Last-Modified, If-Modified-Since, and If-None-Match headers.',
+    description:
+      'Provides middleware for conditional HTTP requests supporting the ETag, Last-Modified, If-Modified-Since, and If-None-Match headers.',
     technologies: ['Go'],
-    startYear: 2021
+    startYear: 2021,
   },
 
   {
@@ -236,7 +239,7 @@ export const projects: Project[] = [
     title: 'textsimilarity',
     description: 'A Go package to analyze files for copied and pasted (and possibly slightly modified) text.',
     technologies: ['Go'],
-    startYear: 2021
+    startYear: 2021,
   },
 
   {
@@ -244,21 +247,21 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: TwoDeeParticlesPNGImage,
-        md: TwoDeeParticles400PNGImage
+        md: TwoDeeParticles400PNGImage,
       },
       webp: {
         lg: TwoDeeParticlesWebPImage,
-        md: TwoDeeParticles400WebPImage
+        md: TwoDeeParticles400WebPImage,
       },
       avif: {
         lg: TwoDeeParticlesAVIFImage,
-        md: TwoDeeParticles400AVIFImage
-      }
+        md: TwoDeeParticles400AVIFImage,
+      },
     },
     title: 'twodeeparticles',
     description: 'An engine-agnostic 2D particle system simulator for Go.',
     technologies: ['Go', 'Ebiten'],
-    startYear: 2020
+    startYear: 2020,
   },
 
   {
@@ -266,31 +269,33 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: EbitenUIPNGImage,
-        md: EbitenUI400PNGImage
+        md: EbitenUI400PNGImage,
       },
       webp: {
         lg: EbitenUIWebPImage,
-        md: EbitenUI400WebPImage
+        md: EbitenUI400WebPImage,
       },
       avif: {
         lg: EbitenUIAVIFImage,
-        md: EbitenUI400AVIFImage
-      }
+        md: EbitenUI400AVIFImage,
+      },
     },
     title: 'Ebiten UI',
-    description: 'An extension to Ebiten that provides an engine to render a complete user interface, with widgets such as buttons, lists, combo boxes, and so on.',
+    description:
+      'An extension to Ebiten that provides an engine to render a complete user interface, with widgets such as buttons, lists, combo boxes, and so on.',
     technologies: ['Go', 'Ebiten'],
     startYear: 2020,
-    endYear: 2022
+    endYear: 2022,
   },
 
   {
     url: 'https://github.com/blizzy78/copper',
     title: 'Copper',
-    description: 'A template rendering engine written in Go. It is agnostic of any HTTP router or any other framework and can also be used standalone.',
+    description:
+      'A template rendering engine written in Go. It is agnostic of any HTTP router or any other framework and can also be used standalone.',
     technologies: ['Go'],
     startYear: 2019,
-    endYear: 2021
+    endYear: 2021,
   },
 
   {
@@ -298,22 +303,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: KSPToolbarPNGImage,
-        md: KSPToolbar400PNGImage
+        md: KSPToolbar400PNGImage,
       },
       webp: {
         lg: KSPToolbarWebPImage,
-        md: KSPToolbar400WebPImage
+        md: KSPToolbar400WebPImage,
       },
       avif: {
         lg: KSPToolbarAVIFImage,
-        md: KSPToolbar400AVIFImage
-      }
+        md: KSPToolbar400AVIFImage,
+      },
     },
     title: 'KSP Toolbar',
     description: 'A popular add-on for Kerbal Space Program that provides a unified toolbar for other add-ons.',
     technologies: ['C#', 'Unity 3D'],
     startYear: 2013,
-    endYear: 2016
+    endYear: 2016,
   },
 
   {
@@ -321,22 +326,23 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: Smooth2DCameraPNGImage,
-        md: Smooth2DCamera400PNGImage
+        md: Smooth2DCamera400PNGImage,
       },
       webp: {
         lg: Smooth2DCameraWebPImage,
-        md: Smooth2DCamera400WebPImage
+        md: Smooth2DCamera400WebPImage,
       },
       avif: {
         lg: Smooth2DCameraAVIFImage,
-        md: Smooth2DCamera400AVIFImage
-      }
+        md: Smooth2DCamera400AVIFImage,
+      },
     },
     title: 'Smooth 2D Camera',
-    description: 'Improves the rendering of the 2D camera in Unity 3D to display crisp and clear images, and avoid a pixelated or blurry look.',
+    description:
+      'Improves the rendering of the 2D camera in Unity 3D to display crisp and clear images, and avoid a pixelated or blurry look.',
     technologies: ['C#', 'Unity 3D'],
     startYear: 2015,
-    endYear: 2015
+    endYear: 2015,
   },
 
   {
@@ -344,22 +350,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: KesslerSyndromePNGImage,
-        md: KesslerSyndrome400PNGImage
+        md: KesslerSyndrome400PNGImage,
       },
       webp: {
         lg: KesslerSyndromeWebPImage,
-        md: KesslerSyndrome400WebPImage
+        md: KesslerSyndrome400WebPImage,
       },
       avif: {
         lg: KesslerSyndromeAVIFImage,
-        md: KesslerSyndrome400AVIFImage
-      }
+        md: KesslerSyndrome400AVIFImage,
+      },
     },
     title: 'Kessler Syndrome',
     description: 'A game of skill where you launch satellites into orbit.',
     technologies: ['C#', 'Unity 3D'],
     startYear: 2015,
-    endYear: 2015
+    endYear: 2015,
   },
 
   {
@@ -367,22 +373,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: LuminosoPNGImage,
-        md: Luminoso400PNGImage
+        md: Luminoso400PNGImage,
       },
       webp: {
         lg: LuminosoWebPImage,
-        md: Luminoso400WebPImage
+        md: Luminoso400WebPImage,
       },
       avif: {
         lg: LuminosoAVIFImage,
-        md: Luminoso400AVIFImage
-      }
+        md: Luminoso400AVIFImage,
+      },
     },
     title: 'Luminoso',
     description: 'A puzzle game with laser beams.',
     technologies: ['C#', 'Unity 3D', 'Blender'],
     startYear: 2015,
-    endYear: 2015
+    endYear: 2015,
   },
 
   {
@@ -390,22 +396,22 @@ export const projects: Project[] = [
     images: {
       png: {
         lg: LighthousePNGImage,
-        md: Lighthouse400PNGImage
+        md: Lighthouse400PNGImage,
       },
       webp: {
         lg: LighthouseWebPImage,
-        md: Lighthouse400WebPImage
+        md: Lighthouse400WebPImage,
       },
       avif: {
         lg: LighthouseAVIFImage,
-        md: Lighthouse400AVIFImage
-      }
+        md: Lighthouse400AVIFImage,
+      },
     },
     title: 'Lighthouse 3D Model',
     description: 'A 3D model of a well-known lighthouse in northern Germany.',
     technologies: ['Blender'],
     startYear: 2014,
-    endYear: 2014
+    endYear: 2014,
   },
 
   {
@@ -414,6 +420,6 @@ export const projects: Project[] = [
     description: 'A powerful mailing list manager for Amiga-based bulletin board systems.',
     technologies: ['C', 'Magic User Interface'],
     startYear: 1995,
-    endYear: 1996
-  }
+    endYear: 1996,
+  },
 ]
