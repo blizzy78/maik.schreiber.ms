@@ -1,5 +1,6 @@
 import '@fontsource/montserrat'
 import '@fontsource/poppins'
+import '@total-typescript/ts-reset'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
 import * as Helmet from 'react-helmet-async'
