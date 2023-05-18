@@ -9,6 +9,7 @@ import EmptyImage from '@/projects/images/empty.png'
 import projects, { Project } from '@/projects/projects'
 import clsx from 'clsx'
 import Image from 'next/image'
+import BreakpointReadout from './BreakpointReadout'
 
 export default function Home() {
   const activeProjects = projects.filter((p) => !p.endYear)
@@ -49,15 +50,15 @@ export default function Home() {
         </div>
       </main>
 
-      {/* {import.meta.env.DEV && (
+      {process.env.NODE_ENV !== 'production' && (
         <div className="isolate">
-          <div className="fixed top-5 right-5 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
+          {/* <div className="fixed top-5 right-5 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
             <Outline />
-          </div>
+          </div> */}
 
           <BreakpointReadout className="fixed right-2 top-2 opacity-80" />
         </div>
-      )} */}
+      )}
     </>
   )
 }
