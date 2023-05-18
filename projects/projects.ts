@@ -179,4 +179,5 @@ const projects: readonly Project[] = [
   },
 ]
 
-export default projects
+export const activeProjects: readonly Project[] = projects.filter((p) => !p.endYear)
+export const inactiveProjects: readonly Project[] = projects.filter((p) => !!p.endYear)
