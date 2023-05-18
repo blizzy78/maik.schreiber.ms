@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "maik.schreiber.ms",
-      "command": "npm run dev",
+      "command": "pnpm dev",
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}"
