@@ -5,3 +5,7 @@
 html.dark {
 	color-scheme: dark;
 }
+
+.text-pretty {
+	text-wrap: pretty;
+}

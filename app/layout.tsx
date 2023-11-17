@@ -2,7 +2,7 @@ import SocialImage from '@/images/social.png'
 import '@total-typescript/ts-reset'
 import clsx from 'clsx'
 import Script from 'next/script'
-import { montserrat, poppins } from './fonts'
+import { GeistSans } from './fonts'
 import './globals.css'
 
 export const metadata = {
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
 
-      <body className={clsx('font-copy dark:bg-slate-800 dark:text-slate-200', montserrat.variable, poppins.variable)}>
+      <body className={clsx('font-geist-sans dark:bg-slate-800 dark:text-slate-200', GeistSans.variable)}>
         {children}
       </body>
     </html>

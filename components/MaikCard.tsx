@@ -34,7 +34,7 @@ export default function MaikCard() {
           <h2 className="sr-only">About Me</h2>
 
           <div className="mb-6 flex flex-col gap-5 md:mb-8 xl:mb-0">
-            <p className="my-0">
+            <p className="text-pretty my-0">
               Born in 1978, I&nbsp;began developing software in 1994. I&nbsp;started working for{' '}
               <a href="https://subshell.com" rel="noopener noreferrer" className="dark:text-bzyellow">
                 subshell GmbH
@@ -43,7 +43,7 @@ export default function MaikCard() {
               well as various other projects. I&nbsp;am still working for subshell to this day.
             </p>
 
-            <p className="my-0">
+            <p className="text-pretty my-0">
               I&nbsp;have experience with many different technologies and programming languages, including Java, Go,
               React, C#, and C. As projects come and go, I&nbsp;use frontend/
               <wbr />
@@ -51,12 +51,12 @@ export default function MaikCard() {
               up-to-date with the latest technologies.
             </p>
 
-            <p className="my-0">
+            <p className="text-pretty my-0">
               In my spare time, I&nbsp;work on a variety of different projects, most of which are open source. You can
               see some of these projects below.
             </p>
 
-            <p className="my-0">I&nbsp;am always happy to connect with others:</p>
+            <p className="text-pretty my-0">I&nbsp;am always happy to connect with others:</p>
 
             <div className="flex flex-col gap-1 sm:flex-row sm:gap-6">
               <a href="mailto:maik@schreiber.ms" className="flex flex-row items-center gap-2">

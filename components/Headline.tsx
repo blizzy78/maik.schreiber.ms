@@ -12,7 +12,7 @@ export const H1 = ({
       <h1 className="flex flex-row items-center gap-3">
         <TitleIcon className="inline-block h-8 w-8 fill-slate-300" aria-hidden />
 
-        <div className="inline-block font-headline text-2xl font-semibold after:ml-[0.125rem] after:content-['.'] dark:after:text-bzyellow">
+        <div className="inline-block text-2xl font-semibold after:ml-[0.125rem] after:content-['.'] dark:after:text-bzyellow">
           {title}
         </div>
       </h1>
@@ -33,7 +33,7 @@ export const H2 = ({
     <h2 className="flex flex-row items-center gap-3">
       <TitleIcon className="inline-block h-8 w-8 fill-slate-300" aria-hidden />
 
-      <div className="inline-block font-headline text-2xl font-semibold after:ml-[0.125rem] after:content-['.'] dark:after:text-bzyellow">
+      <div className="inline-block text-2xl font-semibold after:ml-[0.125rem] after:content-['.'] dark:after:text-bzyellow">
         {title}
       </div>
     </h2>

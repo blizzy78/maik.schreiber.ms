@@ -28,8 +28,7 @@ module.exports = {
       },
 
       fontFamily: {
-        headline: 'var(--font-montserrat)',
-        copy: 'var(--font-poppins)',
+        'geist-sans': 'var(--font-geist-sans)',
       },
     },
   },

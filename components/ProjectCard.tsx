@@ -52,9 +52,9 @@ export default function ProjectCard({
 
       <div className="flex flex-grow flex-col gap-6 p-6">
         <div className="flex flex-grow flex-col gap-4">
-          <h3 className="font-headline text-lg font-semibold">{project.title}</h3>
+          <h3 className="text-lg font-semibold">{project.title}</h3>
 
-          <div>{project.description}</div>
+          <div className="text-pretty">{project.description}</div>
         </div>
 
         <div className="flex flex-col gap-1">
