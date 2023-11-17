@@ -1,4 +1,5 @@
 import { Project } from '@/projects/projects'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import clsx from 'clsx'
 import { H2 } from './Headline'
 import ProjectCardsList from './ProjectCardsList'
@@ -14,7 +15,7 @@ export default function ProjectCardsListSectionContents({
   sectionBgColorClassName: string
   cardColorClassName?: string
   cardHoverColorClassName?: string
-  titleIcon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+  titleIcon: IconProp
   title: string
   projects: readonly Project[]
 }) {

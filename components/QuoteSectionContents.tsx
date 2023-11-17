@@ -12,7 +12,7 @@ export default function QuoteSectionContents() {
 
           <p className="text-center text-xl italic">
             Good programmers write code <br className="md:hidden" />
-            that <strong className="bold">humans</strong> can understand.
+            that <strong>humans</strong> can understand.
           </p>
         </div>
 

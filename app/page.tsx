@@ -2,9 +2,8 @@ import BreakpointReadout from '@/components/BreakpointReadout'
 import MaikSectionContents from '@/components/MaikSectionContents'
 import ProjectCardsListSectionContents from '@/components/ProjectCardsListSectionContents'
 import QuoteSectionContents from '@/components/QuoteSectionContents'
-import WeatherNightIcon from '@/images/weather-night.svg'
-import WeatherSunnyIcon from '@/images/weather-sunny.svg'
 import { activeProjects, inactiveProjects } from '@/projects/projects'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
   return (
@@ -23,7 +22,7 @@ export default function Home() {
                 sectionBgColorClassName="dark:bg-slate-700"
                 cardColorClassName="dark:border-slate-500 dark:bg-slate-600 dark:shadow-slate-800"
                 cardHoverColorClassName="transition-[border,_box-shadow,_transform] duration-75 hover:z-10 hover:scale-105 hover:shadow-lg hover:duration-100 hover:dark:border-slate-400"
-                titleIcon={WeatherSunnyIcon}
+                titleIcon={faSun}
                 title="Ongoing Projects"
                 projects={activeProjects}
               />
@@ -33,7 +32,7 @@ export default function Home() {
               <ProjectCardsListSectionContents
                 sectionBgColorClassName="dark:bg-slate-800"
                 cardHoverColorClassName="transition-[border,_box-shadow,_transform] duration-75 hover:z-10 hover:scale-105 hover:shadow-lg hover:duration-100 hover:dark:border-slate-500"
-                titleIcon={WeatherNightIcon}
+                titleIcon={faMoon}
                 title="Past Projects"
                 projects={inactiveProjects}
               />

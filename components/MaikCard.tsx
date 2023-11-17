@@ -1,8 +1,9 @@
-import EMailIcon from '@/images/email-outline.svg'
-import GitHubIcon from '@/images/github.svg'
-import HandWaveIcon from '@/images/hand-wave-outline.svg'
 import MaikImage from '@/images/maik.jpg'
-import TwitterIcon from '@/images/twitter.svg'
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons/faXTwitter'
+import { faHandSpock } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Card from './Card'
 import { H1 } from './Headline'
@@ -27,7 +28,7 @@ export default function MaikCard() {
 
       <div className="flex flex-col px-6 md:px-8 xl:gap-5 xl:py-8">
         <div className="sticky top-0 flex flex-row items-center gap-3 py-6 dark:bg-slate-700 md:py-8 xl:static xl:top-auto xl:py-0">
-          <H1 titleIcon={HandWaveIcon} title="Hi, I'm Maik" />
+          <H1 titleIcon={faHandSpock} title="Hi, I'm Maik" />
         </div>
 
         <section>
@@ -60,7 +61,7 @@ export default function MaikCard() {
 
             <div className="flex flex-col gap-1 sm:flex-row sm:gap-6">
               <a href="mailto:maik@schreiber.ms" className="flex flex-row items-center gap-2">
-                <EMailIcon className="h-5 w-5 items-center dark:fill-bzyellow" />
+                <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faEnvelope} />
                 <div className="inline-block dark:text-bzyellow">maik@schreiber.ms</div>
               </a>
 
@@ -69,7 +70,7 @@ export default function MaikCard() {
                 rel="noopener noreferer"
                 className="flex flex-row items-center gap-2"
               >
-                <GitHubIcon className="h-5 w-5 items-center dark:fill-bzyellow" />
+                <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faGithub} />
                 <div className="inline-block dark:text-bzyellow">@blizzy78</div>
               </a>
 
@@ -78,7 +79,7 @@ export default function MaikCard() {
                 rel="noopener noreferer"
                 className="flex flex-row items-center gap-2"
               >
-                <TwitterIcon className="h-5 w-5 items-center dark:fill-bzyellow" />
+                <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faXTwitter} />
                 <div className="inline-block dark:text-bzyellow">@blizzy78</div>
               </a>
             </div>

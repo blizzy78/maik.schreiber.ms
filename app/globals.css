@@ -6,6 +6,10 @@ html.dark {
 	color-scheme: dark;
 }
 
+strong {
+	@apply font-semibold;
+}
+
 .text-pretty {
 	text-wrap: pretty;
 }
