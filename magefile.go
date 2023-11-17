@@ -13,33 +13,59 @@ import (
 
 var Default = Deploy //nolint:deadcode // mage uses this
 
-func DockerImage(ctx context.Context) error {
-	if err := sh.Run("docker", "build", "-f", "Dockerfile", "-t", "maik-schreiber", "--progress", "plain", "."); err != nil {
-		return fmt.Errorf("docker build: %w", err)
+func Lint(ctx context.Context) error {
+	if err := sh.Run("pnpm", "install"); err != nil {
+		return fmt.Errorf("pnpm install: %w", err)
+	}
+
+	if err := sh.Run("pnpm", "lint"); err != nil {
+		return fmt.Errorf("pnpm build: %w", err)
 	}
 
 	return nil
 }
 
-func SaveDockerImage(ctx context.Context) error {
-	mg.CtxDeps(ctx, DockerImage)
+func Build(ctx context.Context) error {
+	mg.CtxDeps(ctx, Lint)
 
-	if err := sh.Run("docker", "save", "-o", "maik-schreiber.docker.tar", "maik-schreiber"); err != nil {
+	if err := sh.Run("pnpm", "install"); err != nil {
+		return fmt.Errorf("pnpm install: %w", err)
+	}
+
+	if err := sh.Run("pnpm", "build", "--no-lint"); err != nil {
+		return fmt.Errorf("pnpm build: %w", err)
+	}
+
+	return nil
+}
+
+func Docker(ctx context.Context) error {
+	mg.CtxDeps(ctx, Build)
+
+	if err := sh.Run("docker", "build", "--pull", "-f", "./Dockerfile", "-t", "maik-schreiber:latest", "--progress", "plain", "."); err != nil {
+		return fmt.Errorf("docker build: %w", err)
+	}
+
+	if err := sh.Run("docker", "save", "-o", "maik-schreiber.docker.tar", "maik-schreiber:latest"); err != nil {
 		return fmt.Errorf("docker save: %w", err)
 	}
 
 	return nil
 }
 
-func Deploy(ctx context.Context) error { //nolint:deadcode // mage uses this
-	mg.CtxDeps(ctx, SaveDockerImage)
+func Deploy(ctx context.Context) error {
+	mg.CtxDeps(ctx, Docker)
 
-	if err := sh.Run("scp", "-C", "maik-schreiber.docker.tar", "mickey@blizzy.de:"); err != nil {
+	if err := sh.Run("scp", "-C", "maik-schreiber.docker.tar", "k.blizzy.de:"); err != nil {
 		return fmt.Errorf("scp: %w", err)
 	}
 
-	if err := sh.Run("ssh", "-C", "mickey@blizzy.de", "~/update-maik-schreiber.sh"); err != nil {
-		return fmt.Errorf("update-maik-schreiber.sh: %w", err)
+	if err := sh.Run("ssh", "k.blizzy.de", "sudo", "/usr/local/bin/k3s", "ctr", "images", "import", "-", "<", "maik-schreiber.docker.tar"); err != nil {
+		return fmt.Errorf("import maik-schreiber.docker.tar: %w", err)
+	}
+
+	if err := sh.Run("kubectl", "--context", "k.blizzy.de", "rollout", "restart", "deployment", "maik-schreiber"); err != nil {
+		return fmt.Errorf("rollout restart maik-schreiber: %w", err)
 	}
 
 	return nil
