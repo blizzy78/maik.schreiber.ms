@@ -6,7 +6,8 @@ import { montserrat, poppins } from './fonts'
 import './globals.css'
 
 export const metadata = {
-  title: 'maik.schreiber.ms',
+  title: 'Maik Schreiber',
+  icons: 'data:;base64,iVBORw0KGgo=',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -15,8 +16,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Maik Schreiber</title>
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
         <link rel="canonical" href="https://maik.schreiber.ms" />
 
         <meta property="og:url" content="https://maik.schreiber.ms" />

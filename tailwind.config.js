@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{ts,tsx}', './node_modules/@blizzy/react-outline/dist/**'],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './node_modules/@blizzy/react-outline/dist/**'],
   darkMode: 'class',
 
   theme: {

@@ -1,10 +1,10 @@
+import BreakpointReadout from '@/components/BreakpointReadout'
+import MaikSectionContents from '@/components/MaikSectionContents'
+import ProjectCardsListSectionContents from '@/components/ProjectCardsListSectionContents'
+import QuoteSectionContents from '@/components/QuoteSectionContents'
 import WeatherNightIcon from '@/images/weather-night.svg'
 import WeatherSunnyIcon from '@/images/weather-sunny.svg'
 import { activeProjects, inactiveProjects } from '@/projects/projects'
-import BreakpointReadout from './BreakpointReadout'
-import MaikSectionContents from './MaikSectionContents'
-import ProjectCardsListSectionContents from './ProjectCardsListSectionContents'
-import QuoteSectionContents from './QuoteSectionContents'
 
 export default function Home() {
   return (
