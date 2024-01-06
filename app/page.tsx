@@ -1,4 +1,3 @@
-import BreakpointReadout from '@/components/BreakpointReadout'
 import MaikSectionContents from '@/components/MaikSectionContents'
 import ProjectCardsListSectionContents from '@/components/ProjectCardsListSectionContents'
 import QuoteSectionContents from '@/components/QuoteSectionContents'
@@ -40,16 +39,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {process.env.NODE_ENV !== 'production' && (
-        <div className="isolate">
-          {/* <div className="fixed top-5 right-5 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
-            <Outline />
-          </div> */}
-
-          <BreakpointReadout className="fixed right-2 top-2 opacity-80" />
-        </div>
-      )}
     </>
   )
 }

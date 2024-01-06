@@ -1,3 +1,4 @@
+import BreakpointReadout from '@/components/BreakpointReadout'
 import SocialImage from '@/images/social.png'
 import '@total-typescript/ts-reset'
 import clsx from 'clsx'
@@ -50,6 +51,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body className={clsx('font-geist-sans dark:bg-slate-800 dark:text-slate-200', GeistSans.variable)}>
         {children}
+
+        {process.env.NODE_ENV !== 'production' && <BreakpointReadout className="fixed right-2 top-2 opacity-80" />}
       </body>
     </html>
   )
