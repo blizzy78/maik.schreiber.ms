@@ -9,7 +9,3 @@ html.dark {
 strong {
 	@apply font-semibold;
 }
-
-.text-pretty {
-	text-wrap: pretty;
-}
