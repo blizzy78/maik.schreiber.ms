@@ -12,6 +12,7 @@ RUN adduser --system --uid 1001 maikschreiber
 
 COPY --chown=maikschreiber:maikschreiber .next/standalone /app
 COPY --chown=maikschreiber:maikschreiber .next/static /app/.next/static
+COPY --chown=maikschreiber:maikschreiber public /app/public
 
 USER maikschreiber
 WORKDIR /app
