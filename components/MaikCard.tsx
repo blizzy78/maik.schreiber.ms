@@ -86,9 +86,9 @@ export default function MaikCard() {
               </div>
 
               <div>
-                <a className="flex flex-row items-center gap-2" href="0x1FFC078EECEE9AAC-public.asc">
+                <a className="flex flex-row items-center gap-2" href="maik-schreiber.pub.asc">
                   <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faLock} />
-                  <div className="inline-block dark:text-bzyellow">Download my OpenPGP public key</div>
+                  <div className="inline-block dark:text-bzyellow">Download my GPG public keys</div>
                 </a>
               </div>
             </div>
