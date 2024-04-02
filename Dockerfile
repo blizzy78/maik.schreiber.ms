@@ -1,4 +1,4 @@
-FROM node:21.6.0-slim
+FROM node:21.7.1-slim
 
 ENV HOSTNAME 0.0.0.0
 ENV PORT 3000
