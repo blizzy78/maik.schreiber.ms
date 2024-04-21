@@ -64,7 +64,7 @@ func Deploy(ctx context.Context) error {
 		return fmt.Errorf("import maik-schreiber.docker.tar: %w", err)
 	}
 
-	if err := sh.Run("kubectl", "--context", "k.blizzy.de", "rollout", "restart", "deployment", "maik-schreiber"); err != nil {
+	if err := sh.Run("kubectl", "--context", "k.blizzy.de-mickey", "rollout", "restart", "deployment", "maik-schreiber"); err != nil {
 		return fmt.Errorf("rollout restart maik-schreiber: %w", err)
 	}
 

@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/blizzy78/bookmarks",
+  "title": "Bookmarks",
+  "description": "My personal bookmarks management application. It's rather simplistic, but fast, searchable, and has tags.",
+  "technologies": ["Go", "React", "TypeScript", "Algolia", "Mantine", "Tailwind CSS"],
+  "startYear": 2021,
+  "endYear": 2023
+}

@@ -1,0 +1,8 @@
+{
+  "url": "http://aminet.net/package/comm/mail/MailDemon4_11",
+  "title": "MailDemon",
+  "description": "A powerful mailing list manager for Amiga-based bulletin board systems.",
+  "technologies": ["C", "Magic User Interface"],
+  "startYear": 1995,
+  "endYear": 1996
+}

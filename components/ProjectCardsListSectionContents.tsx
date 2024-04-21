@@ -1,4 +1,4 @@
-import type { Project } from '@/projects/projects'
+import type { Project } from '@/api/projects'
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 import clsx from 'clsx'
 import { H2 } from './Headline'

@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/blizzy78/textsimilarity",
+  "title": "textsimilarity",
+  "description": "A Go package to analyze files for copied and pasted (and possibly slightly modified) text.",
+  "technologies": ["Go"],
+  "startYear": 2021
+}

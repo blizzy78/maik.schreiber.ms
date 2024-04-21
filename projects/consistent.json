@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/blizzy78/consistent",
+  "title": "consistent",
+  "description": "A Go linter/Analyzer checking that common language constructs are used consistently.",
+  "technologies": ["Go"],
+  "startYear": 2022
+}

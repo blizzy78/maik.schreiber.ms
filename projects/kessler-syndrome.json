@@ -1,0 +1,8 @@
+{
+  "url": "https://play.google.com/store/apps/details?id=de.blizzy.kesslersyndrome",
+  "title": "Kessler Syndrome",
+  "description": "A game of skill where you launch satellites into orbit.",
+  "technologies": ["C#", "Unity 3D"],
+  "startYear": 2015,
+  "endYear": 2015
+}

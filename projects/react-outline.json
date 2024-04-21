@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/blizzy78/react-outline",
+  "title": "react-outline",
+  "description": "A React component that shows a live document outline.",
+  "technologies": ["React", "TypeScript", "Tailwind CSS"],
+  "startYear": 2023
+}

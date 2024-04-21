@@ -1,0 +1,8 @@
+{
+  "url": "https://forum.kerbalspaceprogram.com/index.php?/topic/161857-19x-toolbar-continued-common-api-for-draggableresizable-buttons-toolbar/",
+  "title": "KSP Toolbar",
+  "description": "A popular add-on for Kerbal Space Program that provides a unified toolbar for other add-ons.",
+  "technologies": ["C#", "Unity 3D"],
+  "startYear": 2013,
+  "endYear": 2016
+}

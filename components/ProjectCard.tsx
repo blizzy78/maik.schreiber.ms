@@ -1,5 +1,4 @@
-import EmptyImage from '@/projects/images/empty.png'
-import type { Project } from '@/projects/projects'
+import type { Project } from '@/api/projects'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Card from './Card'
@@ -25,7 +24,7 @@ export default function ProjectCard({
           <picture>
             {!!project.image && (
               <Image
-                src={project.image}
+                src={`/project-images/${project.image}`}
                 width={800}
                 height={356}
                 className="w-full rounded-t-xl"
@@ -36,7 +35,7 @@ export default function ProjectCard({
 
             {!project.image && (
               <Image
-                src={EmptyImage}
+                src="/project-images/empty.png"
                 width={800}
                 height={356}
                 className="w-full rounded-t-xl"

@@ -17,7 +17,7 @@ export default function Card({
 
   if (!!url) {
     return (
-      <a href={url} rel="noopener noreferrer" className={cssClass}>
+      <a href={url} target="_blank" rel="noopener noreferrer" className={cssClass}>
         {children}
       </a>
     )

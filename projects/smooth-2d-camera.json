@@ -1,0 +1,8 @@
+{
+  "url": "https://assetstore.unity.com/packages/tools/camera/smooth-2d-camera-40914",
+  "title": "Smooth 2D Camera",
+  "description": "Improves the rendering of the 2D camera in Unity 3D to display crisp and clear images, and avoid a pixelated or blurry look.",
+  "technologies": ["C#", "Unity 3D"],
+  "startYear": 2015,
+  "endYear": 2015
+}

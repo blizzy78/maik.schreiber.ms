@@ -11,7 +11,15 @@ export const metadata = {
   icons: 'data:;base64,iVBORw0KGgo=',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  activeProjects,
+  inactiveProjects,
+}: {
+  children: React.ReactNode
+  activeProjects: React.ReactNode
+  inactiveProjects: React.ReactNode
+}) {
   return (
     <html lang="en" className="dark">
       <head>
@@ -50,7 +58,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body className={clsx('font-geist-sans dark:bg-slate-800 dark:text-slate-200', GeistSans.variable)}>
-        {children}
+        <main>
+          <div className="mb-24 mt-12">
+            <div className="flex flex-col gap-20">
+              {children}
+
+              <section className="py-6 dark:bg-slate-700">{activeProjects}</section>
+
+              <section>{inactiveProjects}</section>
+            </div>
+          </div>
+        </main>
 
         {process.env.NODE_ENV !== 'production' && <BreakpointReadout className="fixed right-2 top-2 opacity-80" />}
       </body>

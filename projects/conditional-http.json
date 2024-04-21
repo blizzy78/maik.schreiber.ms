@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/blizzy78/conditional-http",
+  "title": "Conditional HTTP Middleware",
+  "description": "Provides middleware for conditional HTTP requests supporting the ETag, Last-Modified, If-Modified-Since, and If-None-Match headers.",
+  "technologies": ["Go"],
+  "startYear": 2021
+}

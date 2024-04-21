@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/blizzy78/twodeeparticles",
+  "title": "twodeeparticles",
+  "description": "An engine-agnostic 2D particle system simulator for Go.",
+  "technologies": ["Go", "Ebiten"],
+  "startYear": 2020
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/blizzy78/dev-container",
+  "title": "Dev Container",
+  "description": "An all-in-one dev container for Visual Studio Code. I use it for all my software development.",
+  "technologies": ["Docker", "Go"],
+  "startYear": 2021
+}
