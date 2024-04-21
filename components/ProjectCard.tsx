@@ -1,5 +1,5 @@
 import EmptyImage from '@/projects/images/empty.png'
-import { Project } from '@/projects/projects'
+import type { Project } from '@/projects/projects'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Card from './Card'

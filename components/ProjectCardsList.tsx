@@ -1,4 +1,4 @@
-import { Project } from '@/projects/projects'
+import type { Project } from '@/projects/projects'
 import ProjectCard from './ProjectCard'
 
 export default function ProjectCardsList({

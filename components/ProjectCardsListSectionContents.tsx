@@ -1,5 +1,5 @@
-import { Project } from '@/projects/projects'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import type { Project } from '@/projects/projects'
+import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 import clsx from 'clsx'
 import { H2 } from './Headline'
 import ProjectCardsList from './ProjectCardsList'
