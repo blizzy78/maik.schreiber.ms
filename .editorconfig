@@ -8,6 +8,6 @@ indent_style = tab
 indent_size = 4
 trim_trailing_whitespace = true
 
-[**/*.{html,js,ts,tsx,json,cjs}]
+[**/*.{html,js,ts,tsx,json,cjs,mjs}]
 indent_style = space
 indent_size = 2
