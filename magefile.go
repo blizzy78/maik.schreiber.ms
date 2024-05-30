@@ -56,12 +56,14 @@ func Docker(ctx context.Context) error {
 func Deploy(ctx context.Context) error {
 	mg.CtxDeps(ctx, Docker)
 
-	if err := sh.Run("scp", "-C", "maik-schreiber.docker.tar", "k.blizzy.de:"); err != nil {
-		return fmt.Errorf("scp: %w", err)
-	}
+	for _, host := range []string{"k.blizzy.de", "k2.blizzy.de"} {
+		if err := sh.Run("scp", "-C", "maik-schreiber.docker.tar", host+":"); err != nil {
+			return fmt.Errorf("scp: %w", err)
+		}
 
-	if err := sh.Run("ssh", "k.blizzy.de", "sudo", "/usr/local/bin/k3s", "ctr", "images", "import", "-", "<", "maik-schreiber.docker.tar"); err != nil {
-		return fmt.Errorf("import maik-schreiber.docker.tar: %w", err)
+		if err := sh.Run("ssh", host, "sudo", "/usr/local/bin/k3s", "ctr", "images", "import", "-", "<", "maik-schreiber.docker.tar"); err != nil {
+			return fmt.Errorf("import maik-schreiber.docker.tar: %w", err)
+		}
 	}
 
 	if err := sh.Run("kubectl", "--context", "k.blizzy.de-mickey", "rollout", "restart", "deployment", "maik-schreiber"); err != nil {
