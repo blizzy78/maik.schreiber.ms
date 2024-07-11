@@ -2,6 +2,6 @@
   "url": "https://markmylinks.com",
   "title": "MarkMyLinks",
   "description": "A bookmarks management application for everyone. For personal use or to share bookmarks with others.",
-  "technologies": ["Go", "Next.js", "TypeScript", "PostgreSQL", "Algolia", "OpenAI", "Mantine", "Tailwind CSS"],
+  "technologies": ["Go", "Next.js", "TypeScript", "PostgreSQL", "OpenAI", "Anthropic", "Mantine", "Tailwind CSS"],
   "startYear": 2023
 }
