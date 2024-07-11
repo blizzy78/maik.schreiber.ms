@@ -62,7 +62,7 @@ export default function MaikCard() {
             <div className="flex flex-col gap-2">
               <div className="flex flex-col gap-1 sm:flex-row sm:gap-6">
                 <a href="mailto:maik@schreiber.ms" className="flex flex-row items-center gap-2">
-                  <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faEnvelope} />
+                  <FontAwesomeIcon className="size-5 items-center dark:text-bzyellow" icon={faEnvelope} />
                   <div className="inline-block dark:text-bzyellow">maik@schreiber.ms</div>
                 </a>
 
@@ -71,7 +71,7 @@ export default function MaikCard() {
                   rel="noopener noreferer"
                   className="flex flex-row items-center gap-2"
                 >
-                  <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faGithub} />
+                  <FontAwesomeIcon className="size-5 items-center dark:text-bzyellow" icon={faGithub} />
                   <div className="inline-block dark:text-bzyellow">@blizzy78</div>
                 </a>
 
@@ -80,14 +80,14 @@ export default function MaikCard() {
                   rel="noopener noreferer"
                   className="flex flex-row items-center gap-2"
                 >
-                  <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faXTwitter} />
+                  <FontAwesomeIcon className="size-5 items-center dark:text-bzyellow" icon={faXTwitter} />
                   <div className="inline-block dark:text-bzyellow">@blizzy78</div>
                 </a>
               </div>
 
               <div>
                 <a className="flex flex-row items-center gap-2" href="maik-schreiber.pub.asc">
-                  <FontAwesomeIcon className="h-5 w-5 items-center dark:text-bzyellow" icon={faLock} />
+                  <FontAwesomeIcon className="size-5 items-center dark:text-bzyellow" icon={faLock} />
                   <div className="inline-block dark:text-bzyellow">Download my GPG public keys</div>
                 </a>
               </div>

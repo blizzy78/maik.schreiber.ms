@@ -19,7 +19,7 @@ export default function ProjectCard({
       colorClassName={colorClassName}
       hoverColorClassName={hoverColorClassName}
     >
-      <div className={clsx('flex-shrink-0', !!project.image ? 'relative' : 'hidden md:block')}>
+      <div className={clsx('shrink-0', !!project.image ? 'relative' : 'hidden md:block')}>
         <figure>
           <picture>
             {!!project.image && (
@@ -49,8 +49,8 @@ export default function ProjectCard({
         {!!project.image && <div className="absolute bottom-0 h-1/8 w-full dark:bg-gradient-b-slate-800"></div>}
       </div>
 
-      <div className="flex flex-grow flex-col gap-6 p-6">
-        <div className="flex flex-grow flex-col gap-4">
+      <div className="flex grow flex-col gap-6 p-6">
+        <div className="flex grow flex-col gap-4">
           <h3 className="text-lg font-semibold">{project.title}</h3>
 
           <div className="text-pretty">{project.description}</div>
