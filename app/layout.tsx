@@ -1,6 +1,5 @@
 import BreakpointReadout from '@/components/BreakpointReadout'
 import SocialImage from '@/images/social.png'
-import '@total-typescript/ts-reset'
 import clsx from 'clsx'
 import Script from 'next/script'
 import { GeistSans } from './fonts'

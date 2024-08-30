@@ -56,7 +56,7 @@ func Docker(ctx context.Context) error {
 func Deploy(ctx context.Context) error {
 	mg.CtxDeps(ctx, Docker)
 
-	for _, host := range []string{"k.blizzy.de", "k2.blizzy.de"} {
+	for _, host := range []string{"node01.cluster.blizzy.de", "node02.cluster.blizzy.de", "node03.cluster.blizzy.de"} {
 		if err := sh.Run("scp", "-C", "maik-schreiber.docker.tar", host+":"); err != nil {
 			return fmt.Errorf("scp: %w", err)
 		}
@@ -66,7 +66,7 @@ func Deploy(ctx context.Context) error {
 		}
 	}
 
-	if err := sh.Run("kubectl", "--context", "k.blizzy.de-mickey", "rollout", "restart", "deployment", "maik-schreiber"); err != nil {
+	if err := sh.Run("kubectl", "rollout", "restart", "deployment", "maik-schreiber"); err != nil {
 		return fmt.Errorf("rollout restart maik-schreiber: %w", err)
 	}
 

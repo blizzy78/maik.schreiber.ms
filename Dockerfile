@@ -1,9 +1,9 @@
-FROM node:21.7.1-alpine
+FROM node:21.7.3-alpine
 
-ENV HOSTNAME 0.0.0.0
-ENV PORT 3000
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
 EXPOSE 3000
 
@@ -14,6 +14,7 @@ COPY --chown=maikschreiber:maikschreiber .next/standalone /app
 COPY --chown=maikschreiber:maikschreiber .next/static /app/.next/static
 COPY --chown=maikschreiber:maikschreiber public /app/public
 
-USER maikschreiber
 WORKDIR /app
+USER maikschreiber
+
 CMD ["node", "server.js"]
