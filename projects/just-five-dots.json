@@ -1,0 +1,7 @@
+{
+  "url": "https://justfivedots.com",
+  "title": "just five dots!",
+  "description": "A casual strategy game in the style of Connect Four, on an infinite board.",
+  "technologies": ["Java", "Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+  "startYear": 2024
+}
