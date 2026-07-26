@@ -3,5 +3,6 @@
   "title": "twodeeparticles",
   "description": "An engine-agnostic 2D particle system simulator for Go.",
   "technologies": ["Go", "Ebiten"],
-  "startYear": 2020
+  "startYear": 2020,
+  "endYear": 2022
 }

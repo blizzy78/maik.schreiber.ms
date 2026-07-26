@@ -2,10 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-html.dark {
-	color-scheme: dark;
+:root {
+	--focus: oklch(55% 0.19 250);
+	--paper: oklch(96% 0.018 87);
+	--surface: oklch(92% 0.025 83);
+	--surface-strong: oklch(86% 0.038 82);
+	--ink: oklch(27% 0.048 252);
+	--muted: oklch(48% 0.03 250);
+	--accent: oklch(56% 0.19 28);
+	--line: oklch(72% 0.035 76);
+	--font-body: var(--font-geist-sans), ui-sans-serif, sans-serif;
+	--font-display: 'Alegreya Variable', ui-serif, serif;
+	--font-mono: 'SFMono-Regular', 'Cascadia Code', 'Roboto Mono', ui-monospace, monospace;
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--duration-short: 140ms;
 }
 
-strong {
-	@apply font-semibold;
+html,
+body {
+	min-width: 0;
+	overflow-x: clip;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-body);
+}
+
+a {
+	text-underline-offset: 0.2em;
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: 3px solid var(--focus);
+	outline-offset: 4px;
+}
+
+.portfolio-shell {
+	min-height: 100vh;
+	background: var(--paper);
+	color: var(--ink);
+}
+
+.portfolio-display {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	font-family: var(--font-display);
+	font-style: normal;
+}
+
+.portfolio-mono {
+	font-family: var(--font-mono);
+	font-variant-numeric: tabular-nums;
+}
+
+.portfolio-link {
+	transition:
+		color var(--duration-short) var(--ease-out),
+		background-color var(--duration-short) var(--ease-out),
+		transform var(--duration-short) var(--ease-out);
+}
+
+.portfolio-link:hover {
+	color: var(--accent);
+}
+
+.portfolio-media {
+	background: var(--surface);
+}
+
+.portfolio-media img {
+	transition:
+		opacity 240ms var(--ease-out),
+		transform 360ms var(--ease-out);
+}
+
+@media (hover: hover) {
+	.portfolio-project:hover .portfolio-media img {
+		opacity: 0.94;
+		transform: scale(1.015);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
 }
