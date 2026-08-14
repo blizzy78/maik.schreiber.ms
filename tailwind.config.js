@@ -4,34 +4,27 @@ module.exports = {
   darkMode: 'class',
 
   theme: {
-    linearGradientColors: (theme) => theme('colors'),
-
-    boxShadow: {
-      sm: '0 1px 3px rgb(0 0 0 / 0.12), 0 1px 2px rgb(0 0 0 / 0.24)',
-      DEFAULT: '0 3px 6px rgb(0 0 0 / 0.15), 0 2px 4px rgb(0 0 0 / 0.12)',
-      md: '0 10px 20px rgb(0 0 0 / 0.15), 0 3px 6px rgb(0 0 0 / 0.1)',
-      lg: '0 15px 25px rgb(0 0 0 / 0.15), 0 5px 10px rgb(0 0 0 / 0.05)',
-      xl: '0 20px 40px rgb(0 0 0 / 0.2)',
-    },
-
     extend: {
       colors: {
-        bzyellow: 'rgba(231, 178, 50, 1)',
-      },
-
-      width: {
-        '1/8': '12.5%',
-      },
-
-      height: {
-        '1/8': '12.5%',
+        fog: '#e8f0f2',
+        paper: '#f8fbfa',
+        ink: '#102f40',
+        blue: '#21647b',
+        signal: '#df5b43',
+        steel: '#b7c7cb',
+        muted: '#5f747e',
+        blush: '#ffc2b4',
+        picture: '#d7e2e4',
+        placeholder: '#d4e0e2',
       },
 
       fontFamily: {
         'geist-sans': 'var(--font-geist-sans)',
+        display: ['Alegreya Variable', 'ui-serif', 'serif'],
+        mono: ['var(--font-geist-mono)', 'ui-monospace', 'monospace'],
       },
     },
   },
 
-  plugins: [require('tailwindcss-gradients')],
+  plugins: [require('@tailwindcss/container-queries')],
 }
